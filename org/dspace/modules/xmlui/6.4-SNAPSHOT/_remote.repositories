@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 02 16:33:24 GMT 2021
+xmlui-6.4-SNAPSHOT.pom>=
+xmlui-6.4-SNAPSHOT.war>=

@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 02 16:35:32 GMT 2021
+org.restlet-2.1.1.pom>maven-restlet=
+org.restlet-2.1.1.jar>maven-restlet=

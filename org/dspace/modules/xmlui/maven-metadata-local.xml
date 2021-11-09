@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.dspace.modules</groupId>
+  <artifactId>xmlui</artifactId>
+  <versioning>
+    <versions>
+      <version>6.4-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20211102163324</lastUpdated>
+  </versioning>
+</metadata>

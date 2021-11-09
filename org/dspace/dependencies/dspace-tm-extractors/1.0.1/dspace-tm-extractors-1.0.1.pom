@@ -1,0 +1,133 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.dspace.dependencies</groupId>
+    <artifactId>dspace-tm-extractors</artifactId>
+    <name>DSpace TM-Extractors Dependency</name>
+    <version>1.0.1</version>
+    <description>TM-Extractors Artifact Builder for deployment to Maven repository.</description>
+
+
+    <licenses>
+        <license>
+            <url>http://text-mining.googlecode.com/svn/trunk/etc/lgpl-2_1.txt</url>
+            <name>LGPL</name>
+            <comments>TM-Extractors is LGPL'd and under the</comments>
+            <distribution>repo</distribution>
+        </license>
+
+    </licenses>
+
+    <parent>
+        <artifactId>dspace-pom</artifactId>
+        <groupId>org.dspace</groupId>
+        <version>6</version>
+    </parent>
+
+    <!--
+       The Subversion repository location is used by Continuum to update against
+       when changes have occured, this spawns a new build cycle and releases snapshots
+       into the snapshot repository below.
+    -->
+    <scm>
+        <connection>scm:svn:http://scm.dspace.org/svn/repo/modules/dspace-tm-extractors/tags/dspace-tm-extractors-1.0.1</connection>
+        <developerConnection>scm:svn:https://scm.dspace.org/svn/repo/modules/dspace-tm-extractors/tags/dspace-tm-extractors-1.0.1</developerConnection>
+        <url>http://scm.dspace.org/svn/repo/modules/dspace-tm-extractors/tags/dspace-tm-extractors-1.0.1</url>
+    </scm>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <!-- this execution checks out source from google code at a specific revision number
+                    and builds the generated sources as an artifact for deployment -->
+                    <execution>
+                        <id>generated</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>checkout</goal>
+                        </goals>
+                        <configuration>
+                            <basedir>.</basedir>
+                            <checkoutDirectory>target/generated-sources</checkoutDirectory>
+                            <connectionUrl>scm:svn:http://text-mining.googlecode.com/svn/trunk/src</connectionUrl>
+                            <scmVersion>3</scmVersion>
+                            <scmVersionType>revision</scmVersionType>
+                            <skipCheckoutIfExists>true</skipCheckoutIfExists>
+                            <useExport>true</useExport>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>target/generated-sources</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.google.code.maven-license-plugin</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <header>http://scm.dspace.org/svn/repo/licenses/LICENSE_HEADER</header>
+                    <excludes>
+                        <exclude>target/**</exclude>
+                        <!-- exclude all sources from licensing rewrites. -->
+                        <exclude>src/**</exclude>
+                    </excludes>
+                    <properties />
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.1</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>xmlunit</groupId>
+            <artifactId>xmlunit</artifactId>
+            <version>1.1</version>
+        </dependency>
+
+    </dependencies>
+</project>
+

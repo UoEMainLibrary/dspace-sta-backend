@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 02 16:33:52 GMT 2021
+dspace-swordv2-6.4-SNAPSHOT.pom>=
+dspace-swordv2-6.4-SNAPSHOT.war>=
+dspace-swordv2-6.4-SNAPSHOT-classes.jar>=

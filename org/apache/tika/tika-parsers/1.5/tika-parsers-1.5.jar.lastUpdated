@@ -1,0 +1,8 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 02 16:35:49 GMT 2021
+https\://repository.cloudera.com/artifactory/libs-release/.error=
+http\://maven.restlet.org/.error=
+https\://repository.cloudera.com/artifactory/libs-release/.lastUpdated=1635870949937
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1635870915318
+http\://maven.restlet.org/.lastUpdated=1635870932903
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.apache.tika\:tika-parsers\:jar\:1.5 from/to central (https\://repo.maven.apache.org/maven2)\: Transfer failed for https\://repo.maven.apache.org/maven2/org/apache/tika/tika-parsers/1.5/tika-parsers-1.5.jar

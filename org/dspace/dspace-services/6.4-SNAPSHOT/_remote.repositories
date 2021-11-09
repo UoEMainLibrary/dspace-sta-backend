@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 02 16:31:42 GMT 2021
+dspace-services-6.4-SNAPSHOT.jar>=
+dspace-services-6.4-SNAPSHOT.pom>=

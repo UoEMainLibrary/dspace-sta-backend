@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>org.dspace</groupId>
+  <artifactId>dspace-xmlui-lang</artifactId>
+  <versioning>
+    <latest>4.2.3-SNAPSHOT</latest>
+    <release></release>
+    <versions>
+      <version>4.2.3-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20150612151130</lastUpdated>
+  </versioning>
+</metadata>

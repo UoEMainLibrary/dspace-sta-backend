@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 02 16:35:15 GMT 2021
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1635870915318
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.slf4j\:jul-to-slf4j\:jar\:1.7.14 from/to central (https\://repo.maven.apache.org/maven2)\: Transfer failed for https\://repo.maven.apache.org/maven2/org/slf4j/jul-to-slf4j/1.7.14/jul-to-slf4j-1.7.14.jar

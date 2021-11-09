@@ -1,0 +1,28 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.mcavallo</groupId>
+  <artifactId>opencloud</artifactId>
+  <version>0.3</version>
+  <name>OpenCloud</name>
+  <description>OpenCloud is a Java library for generating and managing a tag cloud in your website or application.</description>
+  <url>http://opencloud.mcavallo.org/</url>
+  <licenses>
+    <license>
+      <name>The MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+	  <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+  	<url>http://opencloud.svn.sourceforge.net/svnroot/opencloud/trunk</url>
+  	<connection>scm:svn:http://opencloud.svn.sourceforge.net/svnroot/opencloud/trunk</connection>
+  	<developerConnection>scm:svn:https://opencloud.svn.sourceforge.net/svnroot/opencloud/trunk</developerConnection>
+  </scm>
+  <developers>
+    <developer>
+      <id>mcavallo</id>
+      <name>Marco Cavallo</name>
+      <email>mpcavallo@libero.it</email>
+    </developer>
+  </developers>
+</project>

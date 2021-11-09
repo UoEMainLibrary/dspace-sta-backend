@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 02 16:33:11 GMT 2021
+dspace-xmlui-6.4-SNAPSHOT.pom>=
+dspace-xmlui-6.4-SNAPSHOT.war>=
+dspace-xmlui-6.4-SNAPSHOT-classes.jar>=

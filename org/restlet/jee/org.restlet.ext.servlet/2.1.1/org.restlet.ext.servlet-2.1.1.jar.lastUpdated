@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 02 16:35:32 GMT 2021
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1635870915316
+http\://maven.restlet.org/.lastUpdated=1635870932900
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.restlet.jee\:org.restlet.ext.servlet\:jar\:2.1.1 from/to central (https\://repo.maven.apache.org/maven2)\: Transfer failed for https\://repo.maven.apache.org/maven2/org/restlet/jee/org.restlet.ext.servlet/2.1.1/org.restlet.ext.servlet-2.1.1.jar

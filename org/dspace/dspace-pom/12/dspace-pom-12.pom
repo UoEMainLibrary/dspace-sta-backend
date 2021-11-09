@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.dspace</groupId>
+    <artifactId>dspace-pom</artifactId>
+    <packaging>pom</packaging>
+    <name>DSpace Common POM</name>
+    <description>
+        The DSpace Common POM contains the basic details for all DSpace based projects.
+    </description>
+    <url>http://projects.dspace.org/dspace-pom</url>
+    <organization>
+        <name>DuraSpace</name>
+        <url>http://www.dspace.org</url>
+    </organization>
+    <version>12</version>
+
+    <!-- brings the sonatype snapshot repository and signing requirement on board -->
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
+    <!--Force UTF-8 encoding during build on all platforms-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <developers>
+        <!-- Placeholder for multi project developer community -->
+        <developer>
+            <name>dspace-devel</name>
+            <email>dspace-devel@lists.sourceforge.net</email>
+        </developer>
+    </developers>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <!-- DSpace requires Java 1.6 or higher -->
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.2.1</version>
+            </plugin>
+            <!-- unit testing -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.9</version>
+                <!--
+                    By default, the surefire plugin will automatically
+                    include all test classes with the following wildcard
+                    patterns: "**/Test*.java" - includes all of its
+                    subdirectory and all java filenames that start with
+                    "Test". "**/*Test.java" - includes all of its
+                    subdirectory and all java filenames that end with
+                    "Test". "**/*TestCase.java" - includes all of its
+                    subdirectory and all java filenames that end with
+                    "TestCase".
+                -->
+            </plugin>
+            <plugin>
+                <groupId>com.mycila.maven-license-plugin</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+                <version>1.9.0</version>
+                <configuration>
+                    <header>http://scm.dspace.org/svn/repo/licenses/LICENSE_HEADER</header>
+                    <!--Just check headers of everything in the /src directory -->
+                    <includes>
+                        <include>src/**</include>
+                    </includes>
+                    <!--Use all default exclusions for IDE files & Maven files, see: 
+                        http://code.google.com/p/maven-license-plugin/wiki/Configuration#Default_excludes -->
+                    <useDefaultExcludes>true</useDefaultExcludes>
+                    <!-- Add some default DSpace exclusions not covered by <useDefaultExcludes> 
+                         Individual Maven projects may choose to override these defaults. -->
+                    <excludes>
+                        <exclude>**/src/test/resources/**</exclude>
+                        <exclude>**/META-INF/**</exclude>
+                        <exclude>**/robots.txt</exclude>
+                        <exclude>**/*.LICENSE</exclude>
+                        <exclude>**/LICENSE*</exclude>
+                        <exclude>**/README*</exclude>
+                        <exclude>**/readme*</exclude>
+                    </excludes>
+                    <mapping> 
+                        <!-- Custom DSpace file extensions which are not recognized by maven-release-plugin: 
+                             *.xmap, *.xslt, *.LICENSE -->
+                        <xmap>XML_STYLE</xmap>
+                        <xslt>XML_STYLE</xslt>
+                        <LICENSE>TEXT</LICENSE>
+                    </mapping>  
+                    <encoding>UTF-8</encoding>
+                    <!-- maven-license-plugin recommends a strict check (e.g. check spaces/tabs too) -->
+                    <strictCheck>true</strictCheck>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>check-headers</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- use release plugin which is more stable with SVN -->
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <goals>deploy</goals>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <licenses>
+        <license>
+            <name>DuraSpace Sourcecode License</name>
+            <url>http://scm.dspace.org/svn/repo/licenses/LICENSE.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>DSpace Issue Tracking</system>
+        <url>https://jira.duraspace.org/browse/DS</url>
+    </issueManagement>
+
+    <mailingLists>
+        <mailingList>
+            <name>DSpace General Issues List</name>
+            <subscribe>http://lists.sourceforge.net/mailman/listinfo/dspace-general
+            </subscribe>
+            <unsubscribe>http://lists.sourceforge.net/mailman/listinfo/dspace-general
+            </unsubscribe>
+            <post>dspace-general AT lists.sourceforge.net</post>
+            <archive>http://sourceforge.net/mailarchive/forum.php?forum_name=dspace-general
+            </archive>
+        </mailingList>
+        <mailingList>
+            <name>DSpace Technical Users List</name>
+            <subscribe>http://lists.sourceforge.net/mailman/listinfo/dspace-tech
+            </subscribe>
+            <unsubscribe>http://lists.sourceforge.net/mailman/listinfo/dspace-tech
+            </unsubscribe>
+            <post>dspace-tech AT lists.sourceforge.net</post>
+            <archive>http://sourceforge.net/mailarchive/forum.php?forum_name=dspace-tech
+            </archive>
+        </mailingList>
+        <mailingList>
+            <name>DSpace Developers List</name>
+            <subscribe>http://lists.sourceforge.net/mailman/listinfo/dspace-devel
+            </subscribe>
+            <unsubscribe>http://lists.sourceforge.net/mailman/listinfo/dspace-devel
+            </unsubscribe>
+            <post>dspace-devel AT lists.sourceforge.net</post>
+            <archive>http://sourceforge.net/mailarchive/forum.php?forum_name=dspace-devel
+            </archive>
+        </mailingList>
+        <mailingList>
+            <name>DSpace SCM Commit Change-Log</name>
+            <subscribe>http://lists.sourceforge.net/mailman/listinfo/dspace-changelog
+            </subscribe>
+            <unsubscribe>http://lists.sourceforge.net/mailman/listinfo/dspace-changelog
+            </unsubscribe>
+            <post>noreply AT lists.sourceforge.net</post>
+            <archive>
+                http://sourceforge.net/mailarchive/forum.php?forum_name=dspace-changelog
+            </archive>
+        </mailingList>
+    </mailingLists>
+
+    <!--
+        The Subversion repository location is used by Continuum to
+        update against when changes have occured, this spawns a new
+        build cycle and releases snapshots into the snapshot repository
+        below.
+    -->
+    <scm>
+        <connection>scm:svn:http://scm.dspace.org/svn/repo/modules/dspace-pom/tags/dspace-pom-12</connection>
+        <developerConnection>scm:svn:https://scm.dspace.org/svn/repo/modules/dspace-pom/tags/dspace-pom-12</developerConnection>
+        <url>http://scm.dspace.org/svn/repo/modules/dspace-pom/tags/dspace-pom-12</url>
+    </scm>
+   
+    <!--
+        Distribution Management is currently used by the Continuum
+        server to update snapshots it generates. This will also be used
+        on release to deploy release versions to the repository by the
+        release manager.
+    -->
+    <distributionManagement>
+        <!-- further distribution management is found upstream in the sonatype parent -->
+    </distributionManagement>
+
+</project>

@@ -1,0 +1,8 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 02 16:35:49 GMT 2021
+https\://repository.cloudera.com/artifactory/libs-release/.error=
+http\://maven.restlet.org/.error=
+https\://repository.cloudera.com/artifactory/libs-release/.lastUpdated=1635870949933
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1635870915317
+http\://maven.restlet.org/.lastUpdated=1635870932900
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact com.adobe.xmp\:xmpcore\:jar\:5.1.2 from/to central (https\://repo.maven.apache.org/maven2)\: Transfer failed for https\://repo.maven.apache.org/maven2/com/adobe/xmp/xmpcore/5.1.2/xmpcore-5.1.2.jar

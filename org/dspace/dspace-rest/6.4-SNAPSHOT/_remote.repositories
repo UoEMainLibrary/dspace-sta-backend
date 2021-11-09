@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 02 16:33:42 GMT 2021
+dspace-rest-6.4-SNAPSHOT-classes.jar>=
+dspace-rest-6.4-SNAPSHOT.pom>=
+dspace-rest-6.4-SNAPSHOT.war>=

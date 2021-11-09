@@ -1,0 +1,8 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 02 16:35:49 GMT 2021
+https\://repository.cloudera.com/artifactory/libs-release/.error=
+http\://maven.restlet.org/.error=
+https\://repository.cloudera.com/artifactory/libs-release/.lastUpdated=1635870949934
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1635870915317
+http\://maven.restlet.org/.lastUpdated=1635870932900
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact com.drewnoakes\:metadata-extractor\:jar\:2.6.2 from/to central (https\://repo.maven.apache.org/maven2)\: Transfer failed for https\://repo.maven.apache.org/maven2/com/drewnoakes/metadata-extractor/2.6.2/metadata-extractor-2.6.2.jar
