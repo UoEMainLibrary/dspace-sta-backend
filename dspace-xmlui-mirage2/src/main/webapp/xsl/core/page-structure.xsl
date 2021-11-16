@@ -33,7 +33,9 @@
                 xmlns:mods="http://www.loc.gov/mods/v3"
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:confman="org.dspace.core.ConfigurationManager"
-                exclude-result-prefixes="i18n dri mets xlink xsl dim xhtml mods dc confman">
+                exclude-result-prefixes="i18n dri mets xlink xsl dim xhtml mods dc confman"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://apache.org/cocoon/i18n/2.1 ">
 
     <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
 
@@ -41,7 +43,8 @@
         Requested Page URI. Some functions may alter behavior of processing depending if URI matches a pattern.
         Specifically, adding a static page will need to override the DRI, to directly add content.
     -->
-    <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
+    <xsl:variable name="request-uri"
+                  select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
 
     <!--
         The starting point of any XSL processing is matching the root element. In DRI the root element is document,
@@ -68,7 +71,7 @@
 
             <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;
             </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;!--[if lt IE 7]&gt; &lt;html class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot; lang=&quot;en&quot;&gt; &lt;![endif]--&gt;
+                <xsl:text disable-output-escaping="yes">&lt;!--[if lt IE 7]&gt; &lt;html class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot; lang=&quot;en&quot;&gt; &lt;![endif]--&gt;
             &lt;!--[if IE 7]&gt;    &lt;html class=&quot;no-js lt-ie9 lt-ie8&quot; lang=&quot;en&quot;&gt; &lt;![endif]--&gt;
             &lt;!--[if IE 8]&gt;    &lt;html class=&quot;no-js lt-ie9&quot; lang=&quot;en&quot;&gt; &lt;![endif]--&gt;
             &lt;!--[if gt IE 8]&gt;&lt;!--&gt; &lt;html class=&quot;no-js&quot; lang=&quot;en&quot;&gt; &lt;!--&lt;![endif]--&gt;
@@ -121,10 +124,10 @@
                                 <!--
                             The footer div, dropping whatever extra information is needed on the page. It will
                             most likely be something similar in structure to the currently given example. -->
-                            <div class="hidden-xs hidden-sm">
-                            <xsl:call-template name="buildFooter"/>
-                             </div>
-                         </div>
+                                <div class="hidden-xs hidden-sm">
+                                    <xsl:call-template name="buildFooter"/>
+                                </div>
+                            </div>
 
 
                         </xsl:otherwise>
@@ -172,10 +175,11 @@
 
             <meta name="Generator">
                 <xsl:attribute name="content">
-                    <xsl:text>DSpace</xsl:text>
+                    <xsl:text>DSpacexxxx</xsl:text>
                     <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='dspace'][@qualifier='version']">
                         <xsl:text> </xsl:text>
-                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='dspace'][@qualifier='version']"/>
+                        <xsl:value-of
+                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='dspace'][@qualifier='version']"/>
                     </xsl:if>
                 </xsl:attribute>
             </meta>
@@ -222,17 +226,22 @@
             <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='opensearch'][@qualifier='shortName']">
                 <link rel="search" type="application/opensearchdescription+xml">
                     <xsl:attribute name="href">
-                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='scheme']"/>
+                        <xsl:value-of
+                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='scheme']"/>
                         <xsl:text>://</xsl:text>
-                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/>
+                        <xsl:value-of
+                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/>
                         <xsl:text>:</xsl:text>
-                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverPort']"/>
+                        <xsl:value-of
+                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverPort']"/>
                         <xsl:value-of select="$context-path"/>
                         <xsl:text>/</xsl:text>
-                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='opensearch'][@qualifier='autolink']"/>
+                        <xsl:value-of
+                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='opensearch'][@qualifier='autolink']"/>
                     </xsl:attribute>
-                    <xsl:attribute name="title" >
-                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='opensearch'][@qualifier='shortName']"/>
+                    <xsl:attribute name="title">
+                        <xsl:value-of
+                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='opensearch'][@qualifier='shortName']"/>
                     </xsl:attribute>
                 </link>
             </xsl:if>
@@ -253,17 +262,18 @@
                 if (defaultedElements[i].value == '<i18n:text>xmlui.dri2xhtml.default.textarea.value</i18n:text>'){
                 defaultedElements[i].value='';}}
                 }
-                //Disable pressing 'enter' key to submit a form (otherwise pressing 'enter' causes a submission to start over)
+                //Disable pressing 'enter' key to submit a form (otherwise pressing 'enter' causes a submission to start
+                over)
                 function disableEnterKey(e)
                 {
                 var key;
 
                 if(window.event)
-                key = window.event.keyCode;     //Internet Explorer
+                key = window.event.keyCode; //Internet Explorer
                 else
-                key = e.which;     //Firefox and Netscape
+                key = e.which; //Firefox and Netscape
 
-                if(key == 13)  //if "Enter" pressed, then disable!
+                if(key == 13) //if "Enter" pressed, then disable!
                 return false;
                 else
                 return true;
@@ -271,28 +281,34 @@
             </script>
 
             <xsl:text disable-output-escaping="yes">&lt;!--[if lt IE 9]&gt;
-                &lt;script src="</xsl:text><xsl:value-of select="concat($theme-path, 'vendor/html5shiv/dist/html5shiv.js')"/><xsl:text disable-output-escaping="yes">"&gt;&#160;&lt;/script&gt;
-                &lt;script src="</xsl:text><xsl:value-of select="concat($theme-path, 'vendor/respond/dest/respond.min.js')"/><xsl:text disable-output-escaping="yes">"&gt;&#160;&lt;/script&gt;
+                &lt;script src="</xsl:text><xsl:value-of
+                select="concat($theme-path, 'vendor/html5shiv/dist/html5shiv.js')"/><xsl:text
+                disable-output-escaping="yes">"&gt;&#160;&lt;/script&gt;
+                &lt;script src="</xsl:text><xsl:value-of
+                select="concat($theme-path, 'vendor/respond/dest/respond.min.js')"/><xsl:text
+                disable-output-escaping="yes">"&gt;&#160;&lt;/script&gt;
                 &lt;![endif]--&gt;</xsl:text>
 
             <!-- Modernizr enables HTML5 elements & feature detects -->
             <script src="{concat($theme-path, 'vendor/modernizr/modernizr.js')}">&#160;</script>
 
             <!-- Add the title in -->
-            <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
+            <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]"/>
             <title>
                 <xsl:choose>
+                    <!-- Pat - Step 1 starts -->
                     <xsl:when test="starts-with($request-uri, 'page/accessibility')">
                         Accessibility statement
                     </xsl:when>
+                    <!-- Pat - Step 1 starts -->
                     <xsl:when test="starts-with($request-uri, 'page/about')">
-                        <i18n:text>xmlui.mirage2.page-structure.aboutThisRepository</i18n:text>
+                        About Us
                     </xsl:when>
                     <xsl:when test="not($page_title)">
                         <xsl:text>  </xsl:text>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:copy-of select="$page_title/node()" />
+                        <xsl:copy-of select="$page_title/node()"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </title>
@@ -304,7 +320,8 @@
             </xsl:if>
 
             <!-- Add all Google Scholar Metadata values -->
-            <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[substring(@element, 1, 9) = 'citation_']">
+            <xsl:for-each
+                    select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[substring(@element, 1, 9) = 'citation_']">
                 <meta name="{@element}" content="{.}"></meta>
             </xsl:for-each>
 
@@ -312,17 +329,20 @@
             <xsl:if test="confman:getProperty('webui.browse.render-scientific-formulas') = 'true'">
                 <script type="text/x-mathjax-config">
                     MathJax.Hub.Config({
-                      tex2jax: {
-                        ignoreClass: "detail-field-data|detailtable|exception"
-                      },
-                      TeX: {
-                        Macros: {
-                          AA: '{\\mathring A}'
-                        }
-                      }
+                    tex2jax: {
+                    ignoreClass: "detail-field-data|detailtable|exception"
+                    },
+                    TeX: {
+                    Macros: {
+                    AA: '{\\mathring A}'
+                    }
+                    }
                     });
                 </script>
-                <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">&#160;</script>
+                <script type="text/javascript"
+                        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+                    &#160;
+                </script>
             </xsl:if>
 
         </head>
@@ -332,13 +352,10 @@
     <!-- The header (distinct from the HTML head element) contains the title, subtitle, login box and various
         placeholders for header images -->
     <xsl:template name="buildHeader">
-
-
         <header>
             <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-
                         <button type="button" class="navbar-toggle" data-toggle="offcanvas">
                             <span class="sr-only">
                                 <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
@@ -349,85 +366,91 @@
                         </button>
 
                         <a href="{$context-path}/" class="navbar-brand">
-                            <img src="{$theme-path}images/DSpace-logo-line.svg" />
+                            <img src="{$theme-path}images/DSpace-logo-line.svg"/>
                         </a>
 
 
                         <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
-                        <ul class="nav nav-pills pull-left ">
+                            <ul class="nav nav-pills pull-left ">
 
-                            <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
-                                <li id="ds-language-selection-xs" class="dropdown">
-                                    <xsl:variable name="active-locale" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='currentLocale']"/>
-                                    <button id="language-dropdown-toggle-xs" href="#" role="button" class="dropdown-toggle navbar-toggle navbar-link" data-toggle="dropdown">
-                                        <b class="visible-xs glyphicon glyphicon-globe" aria-hidden="true"/>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="language-dropdown-toggle-xs" data-no-collapse="true">
-                                        <xsl:for-each
-                                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']">
-                                            <xsl:variable name="locale" select="."/>
-                                            <li role="presentation">
-                                                <xsl:if test="$locale = $active-locale">
-                                                    <xsl:attribute name="class">
-                                                        <xsl:text>disabled</xsl:text>
-                                                    </xsl:attribute>
-                                                </xsl:if>
-                                                <a>
-                                                    <xsl:attribute name="href">
-                                                        <xsl:value-of select="$current-uri"/>
-                                                        <xsl:text>?locale-attribute=</xsl:text>
-                                                        <xsl:value-of select="$locale"/>
-                                                    </xsl:attribute>
-                                                    <xsl:value-of
-                                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='supportedLocale'][@qualifier=$locale]"/>
-                                                </a>
-                                            </li>
-                                        </xsl:for-each>
-                                    </ul>
-                                </li>
-                            </xsl:if>
-
-                            <xsl:choose>
-                                <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
-                                    <li class="dropdown">
-                                        <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button"  data-toggle="dropdown">
-                                            <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
+                                    <li id="ds-language-selection-xs" class="dropdown">
+                                        <xsl:variable name="active-locale"
+                                                      select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='currentLocale']"/>
+                                        <button id="language-dropdown-toggle-xs" href="#" role="button"
+                                                class="dropdown-toggle navbar-toggle navbar-link"
+                                                data-toggle="dropdown">
+                                            <b class="visible-xs glyphicon glyphicon-globe" aria-hidden="true"/>
                                         </button>
                                         <ul class="dropdown-menu pull-right" role="menu"
-                                            aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='url']}">
-                                                    <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
-                                                    <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
-                                                </a>
-                                            </li>
+                                            aria-labelledby="language-dropdown-toggle-xs" data-no-collapse="true">
+                                            <xsl:for-each
+                                                    select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']">
+                                                <xsl:variable name="locale" select="."/>
+                                                <li role="presentation">
+                                                    <xsl:if test="$locale = $active-locale">
+                                                        <xsl:attribute name="class">
+                                                            <xsl:text>disabled</xsl:text>
+                                                        </xsl:attribute>
+                                                    </xsl:if>
+                                                    <a>
+                                                        <xsl:attribute name="href">
+                                                            <xsl:value-of select="$current-uri"/>
+                                                            <xsl:text>?locale-attribute=</xsl:text>
+                                                            <xsl:value-of select="$locale"/>
+                                                        </xsl:attribute>
+                                                        <xsl:value-of
+                                                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='supportedLocale'][@qualifier=$locale]"/>
+                                                    </a>
+                                                </li>
+                                            </xsl:for-each>
                                         </ul>
                                     </li>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <li>
-                                        <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
-                                            <button class="navbar-toggle navbar-link">
-                                            <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                </xsl:if>
+
+                                <xsl:choose>
+                                    <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                        <li class="dropdown">
+                                            <button class="dropdown-toggle navbar-toggle navbar-link"
+                                                    id="user-dropdown-toggle-xs" href="#" role="button"
+                                                    data-toggle="dropdown">
+                                                <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
                                             </button>
-                                        </form>
-                                    </li>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </ul>
-                              </div>
+                                            <ul class="dropdown-menu pull-right" role="menu"
+                                                aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
+                                                <li>
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/
+                            dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                        <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/
+                            dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                        <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <li>
+                                            <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/
+                            dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
+                                                <button class="navbar-toggle navbar-link">
+                                                    <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="navbar-header pull-right hidden-xs">
                         <ul class="nav navbar-nav pull-left">
-                              <xsl:call-template name="languageSelection"/>
+                            <xsl:call-template name="languageSelection"/>
                         </ul>
                         <ul class="nav navbar-nav pull-left">
                             <xsl:choose>
@@ -476,7 +499,9 @@
                         </ul>
 
                         <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
-                            <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
+                            <span class="sr-only">
+                                <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
+                            </span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -499,7 +524,7 @@
                     <!--TODO-->
                     <div class="col-xs-12">
                         <xsl:choose>
-                            <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
+                            <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 4">
                                 <div class="breadcrumb dropdown visible-xs">
                                     <a id="trail-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
                                        data-toggle="dropdown">
@@ -525,6 +550,40 @@
                                     <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
                                 </ul>
                             </xsl:when>
+                            <!-- Pat - Step 4 starts  -->
+                            <xsl:when test="starts-with($request-uri, 'page/accessibility')">
+                                <ul class="breadcrumb">
+                                    <i class="glyphicon glyphicon-home" aria-hidden="true"/>&#160;
+                                    <a href="/xmlui/"><xsl:value-of select="actionUrl"/>Home</a>
+                                    <xsl:text> / Accessibility</xsl:text>
+                                </ul>
+                            </xsl:when>
+                            <!-- Pat - Step 4 finish -->
+
+                            <xsl:when test="starts-with($request-uri, 'page/about')">
+                                <ul class="breadcrumb">
+                                    <i class="glyphicon glyphicon-home" aria-hidden="true"/>&#160;
+                                    <a href="/xmlui/"><xsl:value-of select="actionUrl"/>Home</a>
+                                    <xsl:text> / About Us</xsl:text>
+                                </ul>
+                            </xsl:when>
+
+                            <xsl:when test="starts-with($request-uri, 'page/contact')">
+                                <ul class="breadcrumb">
+                                    <i class="glyphicon glyphicon-home" aria-hidden="true"/>&#160;
+                                    <a href="/xmlui/"><xsl:value-of select="actionUrl"/>Home</a>
+                                    <xsl:text> / Contact</xsl:text>
+                                </ul>
+                            </xsl:when>
+
+                            <xsl:when test="starts-with($request-uri, 'feedback')">
+                                <ul class="breadcrumb">
+                                    <i class="glyphicon glyphicon-home" aria-hidden="true"/>&#160;
+                                    <a href="/xmlui/"><xsl:value-of select="actionUrl"/>Home</a>
+                                    <xsl:text> / Feedback</xsl:text>
+                                </ul>
+                            </xsl:when>
+
                             <xsl:otherwise>
                                 <ul class="breadcrumb">
                                     <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
@@ -553,12 +612,12 @@
                         <xsl:attribute name="href">
                             <xsl:value-of select="./@target"/>
                         </xsl:attribute>
-                        <xsl:apply-templates />
+                        <xsl:apply-templates/>
                     </a>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:attribute name="class">active</xsl:attribute>
-                    <xsl:apply-templates />
+                    <xsl:apply-templates/>
                 </xsl:otherwise>
             </xsl:choose>
         </li>
@@ -577,13 +636,13 @@
                         <xsl:if test="position()=1">
                             <i class="glyphicon glyphicon-home" aria-hidden="true"/>&#160;
                         </xsl:if>
-                        <xsl:apply-templates />
+                        <xsl:apply-templates/>
                     </a>
                 </xsl:when>
                 <xsl:when test="position() > 1 and position() = last()">
                     <xsl:attribute name="class">disabled</xsl:attribute>
                     <a role="menuitem" href="#">
-                        <xsl:apply-templates />
+                        <xsl:apply-templates/>
                     </a>
                 </xsl:when>
                 <xsl:otherwise>
@@ -591,7 +650,7 @@
                     <xsl:if test="position()=1">
                         <i class="glyphicon glyphicon-home" aria-hidden="true"/>&#160;
                     </xsl:if>
-                    <xsl:apply-templates />
+                    <xsl:apply-templates/>
                 </xsl:otherwise>
             </xsl:choose>
         </li>
@@ -608,12 +667,13 @@
 
         <xsl:variable name="ccLicenseName"
                       select="document($externalMetadataURL)//dim:field[@element='rights']"
-                />
+        />
         <xsl:variable name="ccLicenseUri"
                       select="document($externalMetadataURL)//dim:field[@element='rights'][@qualifier='uri']"
-                />
+        />
         <xsl:variable name="handleUri">
-            <xsl:for-each select="document($externalMetadataURL)//dim:field[@element='identifier' and @qualifier='uri']">
+            <xsl:for-each
+                    select="document($externalMetadataURL)//dim:field[@element='identifier' and @qualifier='uri']">
                 <a>
                     <xsl:attribute name="href">
                         <xsl:copy-of select="./node()"/>
@@ -628,23 +688,24 @@
 
         <xsl:if test="$ccLicenseName and $ccLicenseUri and contains($ccLicenseUri, 'creativecommons')">
             <div about="{$handleUri}" class="row">
-            <div class="col-sm-3 col-xs-12">
-                <a rel="license"
-                   href="{$ccLicenseUri}"
-                   alt="{$ccLicenseName}"
-                   title="{$ccLicenseName}"
-                        >
-                    <xsl:call-template name="cc-logo">
-                        <xsl:with-param name="ccLicenseName" select="$ccLicenseName"/>
-                        <xsl:with-param name="ccLicenseUri" select="$ccLicenseUri"/>
-                    </xsl:call-template>
-                </a>
-            </div> <div class="col-sm-8">
-                <span>
-                    <i18n:text>xmlui.dri2xhtml.METS-1.0.cc-license-text</i18n:text>
-                    <xsl:value-of select="$ccLicenseName"/>
-                </span>
-            </div>
+                <div class="col-sm-3 col-xs-12">
+                    <a rel="license"
+                       href="{$ccLicenseUri}"
+                       alt="{$ccLicenseName}"
+                       title="{$ccLicenseName}"
+                    >
+                        <xsl:call-template name="cc-logo">
+                            <xsl:with-param name="ccLicenseName" select="$ccLicenseName"/>
+                            <xsl:with-param name="ccLicenseUri" select="$ccLicenseUri"/>
+                        </xsl:call-template>
+                    </a>
+                </div>
+                <div class="col-sm-8">
+                    <span>
+                        <i18n:text>xmlui.dri2xhtml.METS-1.0.cc-license-text</i18n:text>
+                        <xsl:value-of select="$ccLicenseName"/>
+                    </span>
+                </div>
             </div>
         </xsl:if>
     </xsl:template>
@@ -653,112 +714,120 @@
         <xsl:param name="ccLicenseName"/>
         <xsl:param name="ccLicenseUri"/>
         <xsl:variable name="ccLogo">
-             <xsl:choose>
-                  <xsl:when test="starts-with($ccLicenseUri,
+            <xsl:choose>
+                <xsl:when test="starts-with($ccLicenseUri,
                                            'http://creativecommons.org/licenses/by/')">
-                       <xsl:value-of select="'cc-by.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
+                    <xsl:value-of select="'cc-by.png'"/>
+                </xsl:when>
+                <xsl:when test="starts-with($ccLicenseUri,
                                            'http://creativecommons.org/licenses/by-sa/')">
-                       <xsl:value-of select="'cc-by-sa.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
+                    <xsl:value-of select="'cc-by-sa.png'"/>
+                </xsl:when>
+                <xsl:when test="starts-with($ccLicenseUri,
                                            'http://creativecommons.org/licenses/by-nd/')">
-                       <xsl:value-of select="'cc-by-nd.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
+                    <xsl:value-of select="'cc-by-nd.png'"/>
+                </xsl:when>
+                <xsl:when test="starts-with($ccLicenseUri,
                                            'http://creativecommons.org/licenses/by-nc/')">
-                       <xsl:value-of select="'cc-by-nc.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
+                    <xsl:value-of select="'cc-by-nc.png'"/>
+                </xsl:when>
+                <xsl:when test="starts-with($ccLicenseUri,
                                            'http://creativecommons.org/licenses/by-nc-sa/')">
-                       <xsl:value-of select="'cc-by-nc-sa.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
+                    <xsl:value-of select="'cc-by-nc-sa.png'"/>
+                </xsl:when>
+                <xsl:when test="starts-with($ccLicenseUri,
                                            'http://creativecommons.org/licenses/by-nc-nd/')">
-                       <xsl:value-of select="'cc-by-nc-nd.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
+                    <xsl:value-of select="'cc-by-nc-nd.png'"/>
+                </xsl:when>
+                <xsl:when test="starts-with($ccLicenseUri,
                                            'http://creativecommons.org/publicdomain/zero/')">
-                       <xsl:value-of select="'cc-zero.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
+                    <xsl:value-of select="'cc-zero.png'"/>
+                </xsl:when>
+                <xsl:when test="starts-with($ccLicenseUri,
                                            'http://creativecommons.org/publicdomain/mark/')">
-                       <xsl:value-of select="'cc-mark.png'" />
-                  </xsl:when>
-                  <xsl:otherwise>
-                       <xsl:value-of select="'cc-generic.png'" />
-                  </xsl:otherwise>
-             </xsl:choose>
+                    <xsl:value-of select="'cc-mark.png'"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="'cc-generic.png'"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:variable>
         <img class="img-responsive">
-             <xsl:attribute name="src">
+            <xsl:attribute name="src">
                 <xsl:value-of select="concat($theme-path,'/images/creativecommons/', $ccLogo)"/>
-             </xsl:attribute>
-             <xsl:attribute name="alt">
-                 <xsl:value-of select="$ccLicenseName"/>
-             </xsl:attribute>
+            </xsl:attribute>
+            <xsl:attribute name="alt">
+                <xsl:value-of select="$ccLicenseName"/>
+            </xsl:attribute>
         </img>
     </xsl:template>
 
     <!-- Like the header, the footer contains various miscellaneous text, links, and image placeholders -->
     <xsl:template name="buildFooter">
         <footer>
-                <div class="row">
-                    <hr/>
-                    <div class="col-xs-7 col-sm-8">
-                        <div>
-                            <a href="http://www.dspace.org/" target="_blank">DSpace software</a> copyright&#160;&#169;&#160;2002-2016&#160; <a href="http://www.duraspace.org/" target="_blank">DuraSpace</a>
-                        </div>
-                        <div class="hidden-print">
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                                    <xsl:text>/contact</xsl:text>
-                                </xsl:attribute>
-                                <i18n:text>xmlui.dri2xhtml.structural.contact-link</i18n:text>
-                            </a>
-                            <xsl:text> | </xsl:text>
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                                    <xsl:text>/page/accessibility</xsl:text>
-                                </xsl:attribute>
-                                Accessibility Statement
-                            </a>
-                            <xsl:text> | </xsl:text>
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                                    <xsl:text>/feedback</xsl:text>
-                                </xsl:attribute>
-                                <i18n:text>xmlui.dri2xhtml.structural.feedback-link</i18n:text>
-                            </a>
-                        </div>
+            <div class="row">
+                <hr/>
+                <div class="col-xs-7 col-sm-8">
+                    <!--
+                    <div>
+                        <a href="http://www.dspace.org/" target="_blank">DSpace software</a>
+                        copyright&#160;&#169;&#160;2002-2016&#160;
+                        <a href="http://www.duraspace.org/" target="_blank">DuraSpace</a>
                     </div>
-                    <div class="col-xs-5 col-sm-4 hidden-print">
-                        <div class="pull-right">
-                            <span class="theme-by">Theme by&#160;</span>
-                            <br/>
-                            <a title="Atmire NV" target="_blank" href="http://atmire.com">
-                                <img alt="Atmire NV" src="{concat($theme-path, 'images/atmire-logo-small.svg')}"/>
-                            </a>
-                        </div>
+                    <div class="hidden-print">
+                    -->
 
+                    <!-- Pat - Step 2 starts -->
+                    <a>
+                        <xsl:attribute name="href">
+                            <xsl:value-of
+                                    select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                            <xsl:text>/page/about</xsl:text>
+                        </xsl:attribute>
+                        About Us
+                    </a>
+                    <xsl:text> | </xsl:text>
+                    <!-- Pat - Step 2 ends -->
+                    <a>
+                        <xsl:attribute name="href">
+                            <xsl:value-of
+                                    select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                            <xsl:text>/page/accessibility</xsl:text>
+                        </xsl:attribute>
+                        Accessibility Statement
+                    </a>
+
+                    <xsl:text> | </xsl:text>
+                    <a>
+                        <xsl:attribute name="href">
+                            <xsl:value-of
+                                    select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                            <xsl:text>/page/contact</xsl:text>
+                        </xsl:attribute>
+                        <i18n:text>xmlui.dri2xhtml.structural.contact-link</i18n:text>
+                    </a>
+                    <xsl:text> | </xsl:text>
+
+                        <a>
+                            <xsl:attribute name="href">
+                                <xsl:value-of
+                                        select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                                <xsl:text>/feedback</xsl:text>
+                            </xsl:attribute>
+                            <i18n:text>xmlui.dri2xhtml.structural.feedback-link</i18n:text>
+                        </a>
                     </div>
                 </div>
-                <!--Invisible link to HTML sitemap (for search engines) -->
-                <a class="hidden">
-                    <xsl:attribute name="href">
-                        <xsl:value-of
-                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                        <xsl:text>/htmlmap</xsl:text>
-                    </xsl:attribute>
-                    <xsl:text>&#160;</xsl:text>
-                </a>
+
+            <!--Invisible link to HTML sitemap (for search engines) -->
+            <a class="hidden">
+                <xsl:attribute name="href">
+                    <xsl:value-of
+                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                    <xsl:text>/htmlmap</xsl:text>
+                </xsl:attribute>
+                <xsl:text>&#160;</xsl:text>
+            </a>
             <p>&#160;</p>
         </footer>
     </xsl:template>
@@ -767,8 +836,6 @@
     <!--
             The meta, body, options elements; the three top-level elements in the schema
     -->
-
-
 
 
     <!--
@@ -780,7 +847,8 @@
             <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='alert'][@qualifier='message']">
                 <div class="alert alert-warning">
                     <button type="button" class="close" data-dismiss="alert">&#215;</button>
-                    <xsl:copy-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='alert'][@qualifier='message']/node()"/>
+                    <xsl:copy-of
+                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='alert'][@qualifier='message']/node()"/>
                 </div>
             </xsl:if>
 
@@ -788,16 +856,36 @@
             <xsl:choose>
                 <xsl:when test="starts-with($request-uri, 'page/about')">
                     <div class="hero-unit">
-                        <h1><i18n:text>xmlui.mirage2.page-structure.heroUnit.title</i18n:text></h1>
-                        <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
+                        <h1>
+                            About Us
+                        </h1>
+                        <p>
+                            Information about us ........
+                        </p>
                     </div>
                 </xsl:when>
+                <!-- Pat - Step 3 starts -->
                 <xsl:when test="starts-with($request-uri, 'page/accessibility')">
                     <div class="hero-unit">
-                        <h2>Accessibility statement for <a href="https://digitalpreservation.is.ed.ac.uk/">Digital Preservation</a></h2>
-                        <p>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</p>
-                        <p><a href="https://digitalpreservation.is.ed.ac.uk/">Digital Preservations (DSpace)</a> - <a href="https://digitalpreservation.is.ed.ac.uk/">https://digitalpreservation.is.ed.ac.uk/</a> is a website hosted by the University of Edinburgh Library on behalf of the University of Edinburgh. This is a university-wide digital preservation repository. It is not intended for direct browsing but as a file storage. DSpace hosts derivatives of archival content that will be archived in deep storage. These derivatives will be referenced by other applications, but it is not intended as a front end.</p>
-                        <p>We want as many people as possible to be able to use our website. For example, this means you should be able to:</p>
+                        <h2>Accessibility statement for
+                            <a href="https://digitalpreservation.is.ed.ac.uk/">Digital Preservation</a>
+                        </h2>
+                        <p>Website accessibility statement in line with Public Sector Body (Websites and Mobile
+                            Applications) (No. 2) Accessibility Regulations 2018
+                        </p>
+                        <p>
+                            <a href="https://digitalpreservation.is.ed.ac.uk/">Digital Preservations (DSpace)</a>
+                            - <a href="https://digitalpreservation.is.ed.ac.uk/">
+                            https://digitalpreservation.is.ed.ac.uk/
+                        </a> is a website hosted by the University of Edinburgh Library on behalf of the University of
+                            Edinburgh. This is a university-wide digital preservation repository. It is not intended for
+                            direct browsing but as a file storage. DSpace hosts derivatives of archival content that
+                            will be archived in deep storage. These derivatives will be referenced by other
+                            applications, but it is not intended as a front end.
+                        </p>
+                        <p>We want as many people as possible to be able to use our website. For example, this means you
+                            should be able to:
+                        </p>
                         <ul>
                             <li>change colours, contrast levels and fonts.</li>
                             <li>experience no time limits to content</li>
@@ -807,11 +895,25 @@
                         <p>We've also made the website text as simple as possible to understand.</p>
                         <h2>Customising the website</h2>
                         <p>AbilityNet has advice on making your device easier to use if you have a disability.</p>
-                        <p><a href="https://mcmw.abilitynet.org.uk/">AbilityNet - My computer my way</a></p>
-                        <p>With a few simple steps you can customise the appearance of our website to make it easier to read and navigate.</p>
-                        <p><a href="https://www.ed.ac.uk/about/website/accessibility/customising-site">Additional information on how to customise our website appearance</a></p>
-                        <p>If you are a member of the University staff or a student you can use the free Sensus Access accessible document conversion service.</p>
-                        <p><a href="https://www.ed.ac.uk/student-disability-service/staff/supporting-students/accessible-technology">SenusAccess Information</a></p>
+                        <p>
+                            <a href="https://mcmw.abilitynet.org.uk/">AbilityNet - My computer my way</a>
+                        </p>
+                        <p>With a few simple steps you can customise the appearance of our website to make it easier to
+                            read and navigate.
+                        </p>
+                        <p>
+                            <a href="https://www.ed.ac.uk/about/website/accessibility/customising-site">Additional
+                                information on how to customise our website appearance
+                            </a>
+                        </p>
+                        <p>If you are a member of the University staff or a student you can use the free Sensus Access
+                            accessible document conversion service.
+                        </p>
+                        <p>
+                            <a href="https://www.ed.ac.uk/student-disability-service/staff/supporting-students/accessible-technology">
+                                SenusAccess Information
+                            </a>
+                        </p>
                         <h2>How accessible this website is</h2>
                         <p>We know some parts of this website are not fully accessible:</p>
                         <ul>
@@ -822,85 +924,177 @@
                             <li>entering data or selecting a form control does not always have predictable effects</li>
                         </ul>
                         <h3>Feedback and contact information</h3>
-                        <p>If you need information on this website in a different format like accessible PDF, large print, audio recording or braille please contact the website team by contacting us:</p>
+                        <p>If you need information on this website in a different format like accessible PDF, large
+                            print, audio recording or braille please contact the website team by contacting us:
+                        </p>
                         <p>By using the IS Helpline online contact form</p>
-                        <p><a href="https://www.ishelpline.ed.ac.uk/forms/">IS Helpline contact form</a></p>
+                        <p>
+                            <a href="https://www.ishelpline.ed.ac.uk/forms/">IS Helpline contact form</a>
+                        </p>
                         <p>Or phoning</p>
                         <p>+44 (0)131 651 5151</p>
                         <p>Or email</p>
-                        <p><a href="mailto:information.systems@ed.ac.uk">Information.systems@ed.ac.uk</a></p>
+                        <p>
+                            <a href="mailto:information.systems@ed.ac.uk">Information.systems@ed.ac.uk</a>
+                        </p>
                         <p>We'll consider your request and get back to you in 5 working days.</p>
                         <h2>Reporting accessibility problems with this website</h2>
-                        <p>We're always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we're not meeting accessibility requirements please let us know by contacting:</p>
+                        <p>We're always looking to improve the accessibility of this website. If you find any problems
+                            not listed on this page or think we're not meeting accessibility requirements please let us
+                            know by contacting:
+                        </p>
                         <p>By using the IS Helpline online contact form</p>
-                        <p><a href="https://www.ishelpline.ed.ac.uk/forms/">IS Helpline contact form</a></p>
+                        <p>
+                            <a href="https://www.ishelpline.ed.ac.uk/forms/">IS Helpline contact form</a>
+                        </p>
                         <p>Or phoning</p>
                         <p>+44 (0)131 651 5151</p>
                         <p>Or email</p>
-                        <p><a href="mailto:information.systems@ed.ac.uk">Information.systems@ed.ac.uk</a></p>
+                        <p>
+                            <a href="mailto:information.systems@ed.ac.uk">Information.systems@ed.ac.uk</a>
+                        </p>
                         <p>We'll consider your request and get back to you in 5 working&nbsp;days.</p>
                         <h2>Enforcement procedure</h2>
-                        <p>The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the 'accessibility regulations'). If you're not happy with how we respond to your complaint please contact the Equality Advisory and Support Service (EASS) directly.</p>
-                        <p><a href="https://www.equalityadvisoryservice.com/">Contact details for the Equality Advisory and Support Service (EASS)</a></p>
+                        <p>The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public
+                            Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the
+                            'accessibility regulations'). If you're not happy with how we respond to your complaint
+                            please contact the Equality Advisory and Support Service (EASS) directly.
+                        </p>
+                        <p>
+                            <a href="https://www.equalityadvisoryservice.com/">Contact details for the Equality Advisory
+                                and Support Service (EASS)
+                            </a>
+                        </p>
                         <p>The government has produced information on how to report accessibility issues:</p>
-                        <p><a href="https://www.gov.uk/reporting-accessibility-problem-public-sector-website">Reporting an accessibility problem on a public sector website</a></p>
+                        <p>
+                            <a href="https://www.gov.uk/reporting-accessibility-problem-public-sector-website">Reporting
+                                an accessibility problem on a public sector website
+                            </a>
+                        </p>
                         <h2>Contacting us by phone using British Sign Language</h2>
                         <h3>British Sign Language service</h3>
-                        <p>British Sign Language Scotland runs a service for British Sign Language users and all of Scotland's public bodies using video relay. This enables sign language users to contact public bodies and vice versa. The service operates from 8am to 12 midnight, 7 days a week.&nbsp;</p>
-                        <p><a href="https://contactscotland-bsl.org/">British Sign Language Scotland service details</a></p>
+                        <p>British Sign Language Scotland runs a service for British Sign Language users and all of
+                            Scotland's public bodies using video relay. This enables sign language users to contact
+                            public bodies and vice versa. The service operates from 8am to 12 midnight, 7 days a week.&nbsp;
+                        </p>
+                        <p>
+                            <a href="https://contactscotland-bsl.org/">British Sign Language Scotland service details
+                            </a>
+                        </p>
                         <h2>Technical information about this website's accessibility</h2>
-                        <p>The University of Edinburgh is committed to making its websites accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+                        <p>The University of Edinburgh is committed to making its websites accessible, in accordance
+                            with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility
+                            Regulations 2018.
+                        </p>
                         <h3>Compliance Status</h3>
-                        <p>This website is partially compliant with the Web Content Accessibility Guidelines 2.1 AA standard, due to the non-compliances listed below</p>
+                        <p>This website is partially compliant with the Web Content Accessibility Guidelines 2.1 AA
+                            standard, due to the non-compliances listed below
+                        </p>
                         <p>The full guidelines are available at</p>
-                        <p><a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines version 2.1</a></p>
+                        <p>
+                            <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines version 2.1</a>
+                        </p>
                         <h3>Non accessible content</h3>
                         <p>The content listed below is non-accessible for the following reasons.</p>
                         <p>The following items to not comply with the WCAG 2.1 AA success criteria</p>
                         <ul>
                             <li>Some non-text content does not have text alternatives
                                 <ul>
-                                    <li><a href="https://www.w3.org/TR/WCAG21/#non-text-content">1.1.1 Non-text Content</a></li>
+                                    <li>
+                                        <a href="https://www.w3.org/TR/WCAG21/#non-text-content">1.1.1 Non-text
+                                            Content
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li>Some parts may not be fully compatible with screen readers
                                 <ul>
-                                    <li><a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">1.3.1 Info and Relationships</a></li>
-                                    <li><a href="https://www.w3.org/TR/WCAG21/#parsing">4.1.1 Parsing</a></li>
-                                    <li><a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 Name, Role, Value</a></li>
+                                    <li>
+                                        <a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">1.3.1 Info and
+                                            Relationships
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.w3.org/TR/WCAG21/#parsing">4.1.1 Parsing</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 Name, Role,
+                                            Value
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li>Some colour contrasts do not meet recommended guidance
                                 <ul>
-                                    <li><a href="https://www.w3.org/TR/WCAG21/#contrast-minimum">1.4.3 Contrast (Minimum)</a></li>
+                                    <li>
+                                        <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum">1.4.3 Contrast
+                                            (Minimum)
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li>The default language of each page may not be identified
                                 <ul>
-                                    <li><a href="https://www.w3.org/TR/WCAG21/#language-of-page">3.1.1 Language of Page</a></li>
+                                    <li>
+                                        <a href="https://www.w3.org/TR/WCAG21/#language-of-page">3.1.1 Language of
+                                            Page
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li>Entering data or selecting a form control does not always have predictable effects
                                 <ul>
-                                    <li><a href="https://www.w3.org/TR/WCAG21/#on-input">3.2.2 On Input</a></li>
+                                    <li>
+                                        <a href="https://www.w3.org/TR/WCAG21/#on-input">3.2.2 On Input</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
-                        <p>A complete solution or significant improvement will be in place by July 2021 where the issues are within our control.</p>
+                        <p>A complete solution or significant improvement will be in place by July 2021 where the issues
+                            are within our control.
+                        </p>
                         <h3>Disproportionate burden</h3>
-                        <p>We are not currently claiming that any&nbsp;accessibility problems would be a disproportionate burden to fix.&nbsp;</p>
+                        <p>We are not currently claiming that any&nbsp;accessibility problems would be a
+                            disproportionate burden to fix.&nbsp;
+                        </p>
                         <h3>Content that is not within the Scope of the Accessibility Regulations</h3>
                         <p>At this time we are not claiming any material is out of scope.</p>
                         <h2>What we're doing to improve accessibility</h2>
-                        <p>We will continue to work with our in house developers and the external host supplier to address these issues and deliver a solution or suitable workaround and correct issues directly where they are under our control.</p>
-                        <p>We will continue to monitor accessibility and will carry out further accessibility testing if significant changes are made to the user interface or if a service user raises an issue. To plan to resolve the issues that are within our control by July 2021. We plan to manual review the accessibility of the site and make improvements and update this statement before December 2021.Where we are unable to resolve an issue or where an issue is out with our control we will ensure reasonable adjustments are put in place to ensure no user is disadvantaged</p>
-                        <p>Due to the open source nature of the system in use it may not be possible to resolve all accessibility issues. If this is the case, we will ensure reasonable adjustments are in place to make sure no user is disadvantaged.</p>
+                        <p>We will continue to work with our in house developers and the external host supplier to
+                            address these issues and deliver a solution or suitable workaround and correct issues
+                            directly where they are under our control.
+                        </p>
+                        <p>We will continue to monitor accessibility and will carry out further accessibility testing if
+                            significant changes are made to the user interface or if a service user raises an issue. To
+                            plan to resolve the issues that are within our control by July 2021. We plan to manual
+                            review the accessibility of the site and make improvements and update this statement before
+                            December 2021.Where we are unable to resolve an issue or where an issue is out with our
+                            control we will ensure reasonable adjustments are put in place to ensure no user is
+                            disadvantaged
+                        </p>
+                        <p>Due to the open source nature of the system in use it may not be possible to resolve all
+                            accessibility issues. If this is the case, we will ensure reasonable adjustments are in
+                            place to make sure no user is disadvantaged.
+                        </p>
                         <h3>Information Services and accessibility</h3>
-                        <p>Information Services (IS) has further information on accessibility including assistive technology, creating accessible documents, and services IS provides for disabled users.</p>
-                        <p><a href="https://www.ed.ac.uk/information-services/help-consultancy/accessibility">Assistive technology, creating accessible documents, and services IS provides for disabled users</a></p>
+                        <p>Information Services (IS) has further information on accessibility including assistive
+                            technology, creating accessible documents, and services IS provides for disabled users.
+                        </p>
+                        <p>
+                            <a href="https://www.ed.ac.uk/information-services/help-consultancy/accessibility">Assistive
+                                technology, creating accessible documents, and services IS provides for disabled users
+                            </a>
+                        </p>
                         <h2>Preparation of this accessibility statement</h2>
-                        <p><strong>This statement was prepared on 21<sup>st</sup> September 2020. It was last reviewed on 21<sup>st</sup> September 2020.</strong></p>
-                        <p>This website was last tested on 26<sup>th</sup> June 2020. The test was carried out by The University Library and University Collections Digital Library team using the automated LittleForest tool. The website is scheduled for manual testing by Dec 2021.</p>
+                        <p>
+                            <strong>This statement was prepared on 21<sup>st</sup> September 2020. It was last reviewed
+                                on 21<sup>st</sup> September 2020.
+                            </strong>
+                        </p>
+                        <p>This website was last tested on 26<sup>th</sup> June 2020. The test was carried out by The
+                            University Library and University Collections Digital Library team using the automated
+                            LittleForest tool. The website is scheduled for manual testing by Dec 2021.
+                        </p>
                         <p>We did not use sample pages for testing - all pages were run through LittleForest.</p>
                         <p>Little Forrest claims it tests the following WCAG criteria either partially or wholly</p>
                         <table width="0">
@@ -1315,7 +1509,7 @@
                                     <td width="73">
                                         <p>WCAG 2.1</p>
                                     </td>
-                                    <td width="49">
+                                    <td width="49">DSpace ho
                                         <p>AA</p>
                                     </td>
                                     <td width="76">
@@ -1793,9 +1987,20 @@
                         <p>.</p>
                     </div>
                 </xsl:when>
+                <!-- Pat - Step 3 finish -->
+                <xsl:when test="starts-with($request-uri, 'page/contact')">
+                    <div class="hero-unit">
+                        <h1>
+                            About Us
+                        </h1>
+                        <p>
+                            Information about us ........
+                        </p>
+                    </div>
+                </xsl:when>
                 <!-- Otherwise use default handling of body -->
                 <xsl:otherwise>
-                    <xsl:apply-templates />
+                    <xsl:apply-templates/>
                 </xsl:otherwise>
             </xsl:choose>
 
@@ -1822,13 +2027,16 @@
                          if(typeof window.publication === 'undefined'){
                             window.publication={};
                           };
-                        window.publication.contextPath= '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/><xsl:text>';</xsl:text>
+                        window.publication.contextPath= '</xsl:text><xsl:value-of
+                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/><xsl:text>';</xsl:text>
             <xsl:text>window.publication.themePath= '</xsl:text><xsl:value-of select="$theme-path"/><xsl:text>';</xsl:text>
         </script>
         <!--TODO concat & minify!-->
 
         <script>
-            <xsl:text>if(!window.DSpace){window.DSpace={};}window.DSpace.context_path='</xsl:text><xsl:value-of select="$context-path"/><xsl:text>';window.DSpace.theme_path='</xsl:text><xsl:value-of select="$theme-path"/><xsl:text>';</xsl:text>
+            <xsl:text>if(!window.DSpace){window.DSpace={};}window.DSpace.context_path='</xsl:text><xsl:value-of
+                select="$context-path"/><xsl:text>';window.DSpace.theme_path='</xsl:text><xsl:value-of
+                select="$theme-path"/><xsl:text>';</xsl:text>
         </script>
 
         <!--inject scripts.html containing all the theme specific javascript references
@@ -1851,11 +2059,13 @@
                 <xsl:attribute name="src">
                     <xsl:value-of select="$theme-path"/>
                     <xsl:value-of select="."/>
-                </xsl:attribute>&#160;</script>
+                </xsl:attribute>&#160;
+            </script>
         </xsl:for-each>
 
         <!-- add "shared" javascript from static, path is relative to webapp root-->
-        <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='javascript'][@qualifier='static']">
+        <xsl:for-each
+                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='javascript'][@qualifier='static']">
             <!--This is a dirty way of keeping the scriptaculous stuff from choice-support
             out of our theme without modifying the administrative and submission sitemaps.
             This is obviously not ideal, but adding those scripts in those sitemaps is far
@@ -1866,7 +2076,8 @@
                         <xsl:attribute name="src">
                             <xsl:value-of select="$theme-path"/>
                             <xsl:text>js/choice-support.js</xsl:text>
-                        </xsl:attribute>&#160;</script>
+                        </xsl:attribute>&#160;
+                    </script>
                 </xsl:when>
                 <xsl:when test="not(starts-with(text(), 'static/js/scriptaculous'))">
                     <script>
@@ -1875,7 +2086,8 @@
                                     select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
                             <xsl:text>/</xsl:text>
                             <xsl:value-of select="."/>
-                        </xsl:attribute>&#160;</script>
+                        </xsl:attribute>&#160;
+                    </script>
                 </xsl:when>
             </xsl:choose>
         </xsl:for-each>
@@ -1885,7 +2097,7 @@
             <xsl:call-template name="choiceLookupPopUpSetup"/>
         </xsl:if>
 
-        <xsl:call-template name="addJavascript-google-analytics" />
+        <xsl:call-template name="addJavascript-google-analytics"/>
     </xsl:template>
 
     <xsl:template name="addJavascript-google-analytics">
@@ -1897,9 +2109,12 @@
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
                 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-                ga('create', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/><xsl:text>', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/><xsl:text>');
+                ga('create', '</xsl:text><xsl:value-of
+                    select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/><xsl:text>', '</xsl:text><xsl:value-of
+                    select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/><xsl:text>');
                 ga('send', 'pageview');
-            </xsl:text></script>
+            </xsl:text>
+            </script>
         </xsl:if>
     </xsl:template>
 
@@ -1907,12 +2122,14 @@
         Uses a page metadata curRequestURI which was introduced by in /xmlui-mirage2/src/main/webapp/themes/Mirage2/sitemap.xmap-->
     <xsl:template name="languageSelection">
         <xsl:variable name="curRequestURI">
-            <xsl:value-of select="substring-after(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='curRequestURI'],/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'])"/>
+            <xsl:value-of
+                    select="substring-after(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='curRequestURI'],/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'])"/>
         </xsl:variable>
 
         <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
             <li id="ds-language-selection" class="dropdown">
-                <xsl:variable name="active-locale" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='currentLocale']"/>
+                <xsl:variable name="active-locale"
+                              select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='currentLocale']"/>
                 <a id="language-dropdown-toggle" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
                     <span class="hidden-xs">
                         <xsl:value-of
@@ -1921,7 +2138,8 @@
                         <b class="caret"/>
                     </span>
                 </a>
-                <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="language-dropdown-toggle" data-no-collapse="true">
+                <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="language-dropdown-toggle"
+                    data-no-collapse="true">
                     <xsl:for-each
                             select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']">
                         <xsl:variable name="locale" select="."/>
@@ -1950,7 +2168,8 @@
     <!-- Builds the Query String part of the language URL. If there already is an existing query string
 like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it appends the locale parameter with the ampersand (&) symbol -->
     <xsl:template name="getLanguageURL">
-        <xsl:variable name="queryString" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='queryString']"/>
+        <xsl:variable name="queryString"
+                      select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='queryString']"/>
         <xsl:choose>
             <!-- There allready is a query string so append it and the language argument -->
             <xsl:when test="$queryString != ''">
