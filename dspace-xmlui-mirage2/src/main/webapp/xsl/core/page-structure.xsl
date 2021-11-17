@@ -352,10 +352,20 @@
     <!-- The header (distinct from the HTML head element) contains the title, subtitle, login box and various
         placeholders for header images -->
     <xsl:template name="buildHeader">
-        <header>
+        <header style="height: 40%">
             <div class="navbar navbar-default navbar-static-top" role="navigation">
+
                 <div class="container">
+
                     <div class="navbar-header">
+                        <div style="height: 40%; vertical-align: middle; overflow: hidden">
+                            <ul style="vertical-align: middle; ">
+                                <a href="{$context-path}/" class="navbar-brand">
+                                    <img style="height: 60px; margin-bottom: 30px" src="{$theme-path}images/digpres-test-logo-1.png"/>
+                                </a>
+                                <h1 style="color:white"> Digital Preservation Repositories </h1>
+                            </ul>
+                        </div>
                         <button type="button" class="navbar-toggle" data-toggle="offcanvas">
                             <span class="sr-only">
                                 <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
@@ -364,12 +374,6 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
-                        <a href="{$context-path}/" class="navbar-brand">
-                            <img src="{$theme-path}images/DSpace-logo-line.svg"/>
-                        </a>
-
-
                         <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
                             <ul class="nav nav-pills pull-left ">
 
