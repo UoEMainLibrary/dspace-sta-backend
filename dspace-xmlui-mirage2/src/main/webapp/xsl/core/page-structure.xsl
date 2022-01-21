@@ -279,6 +279,11 @@
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
             <title>
                 <xsl:choose>
+                    <!-- Step 1 - Accessibility Statement -->
+                    <xsl:when test="starts-with($request-uri, 'page/accessibility')">
+                        <xsl:text>Accessibility Statement</xsl:text>
+                    </xsl:when>
+                    <!-- Step 1 - Accessibility Statement -->
                     <xsl:when test="starts-with($request-uri, 'page/about')">
                         <i18n:text>xmlui.mirage2.page-structure.aboutThisRepository</i18n:text>
                     </xsl:when>
@@ -756,7 +761,19 @@
                     <a href="https://www.ed.ac.uk/about/website/freedom-information" target="_blank">Freedom of information</a>
                 </div>
                 <div>
-                    <a href="https://collections.ed.ac.uk/accessibility" target="_blank">Website accessibility</a>
+                  <!-- Step 2 - Accessibility Statemnt -->
+                          <li>
+                              <a>
+                                  <xsl:attribute name="href">
+                                      <xsl:value-of
+                                          select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"
+                                          />
+                                          <xsl:text>/page/accessibility</xsl:text>
+                                  </xsl:attribute>
+                                  Accessibility Statement
+                              </a>
+                          </li>
+                          <!-- Step 2 - Accessibility Statemnt -->
                 </div>
             </div>
             </div>
@@ -802,6 +819,205 @@
                         <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
                     </div>
                 </xsl:when>
+                <!-- Step 3 - Accessibility Statement -->
+                <xsl:when test="starts-with($request-uri, 'page/accessibility')">
+                    <div>
+                      <h2>Accessibility statement for CollectionsManager Website</h2>
+                      <p>
+                          Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2)
+                          Accessibility Regulations 2018.
+                      </p>
+                      <p>
+                          The University of Edinburgh Collections website is run by the University of Edinburgh.
+                          It links to a number of sub sites which have their own accessibility statements We want as many
+                          people as possible to be able to read the journal content hosted on the platform. <br></br>
+                          For example, that means you should be able to:
+                      </p>
+                      <ul>
+                          <li>change colours, contrast levels and fonts</li>
+                          <li>magnify the content</li>
+                          <li>experience no time limits to content</li>
+                          <li>navigate most of the website using just a keyboard</li>
+                          <li>navigate most of the website using speech recognition software</li>
+                          <li>listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)</li>
+                      </ul>
+                      <p>We’ve also made the website text as simple as possible to understand.</p>
+
+                      <h2> Customising the website </h2>
+                      <p>
+                          AbilityNet has advice on making your device easier to use if you have a disability.<br></br>
+                          <a href="https://mcmw.abilitynet.org.uk/">AbilityNet - My computer my way</a> <br></br>
+                          <br></br>
+                          With a few simple steps you can customise the appearance of our website to make it easier to read and navigate.<br></br>
+                          <a href="https://www.ed.ac.uk/about/website/accessibility/customising-site">Additional information on how to customise our website appearance</a><br></br>
+                      </p>
+
+                      <h2>How accessible this website is </h2>
+                      <p>
+                          We know some parts of this website are not fully accessible: 
+                      </p>
+                      <ul>
+                          <li>some parts may not be fully compatible with screen readers</li>
+                          <li>sometimes it can be hard to tell where you have navigated too by keyboard</li>
+                          <li>some colour contrasts do not meet recommended guidance</li>
+                          <li>some non-text content does not have text alternatives</li>
+                          <li>there is some use of italics and continuous capitals</li>
+                      </ul>
+
+                      <h2> What to do if you cannot access parts of this website </h2>
+                      <p>
+                          If you need information on this website in a different format like accessible PDF, large print, audio recording or braille please contact the website
+                          team by contacting us: <br></br>
+                          <br></br>
+
+                          By phoning: <br></br>
+                          &#x260E; +44(0)131 650 8379 <br></br>
+                          <br></br>
+
+                          Or email: <br></br>
+                          <a href="mailtou:is-crc@ed.ac.uk">is-crc@ed.ac.uk</a> <br></br>
+                          Write: Centre for Research Collections <br></br>
+                          Edinburgh University Library,<br></br>
+                          George Square,<br></br>
+                          Edinburgh,<br></br>
+                          EH8 9LJ<br></br>
+                          <br></br>
+
+                          We’ll consider your request and get back to you in 5 working days.
+                        </p>
+
+                        <h2>Reporting accessibility problems with this website</h2>
+                        <p>
+                          We’re always looking to improve the accessibility of this website. If you find any problems not listed on
+                          this page or think we’re not meeting accessibility requirements please let us know by contacting:<br></br>
+                          <br></br>
+
+                          By phoning: <br></br>
+                          &#x260E; +44(0)131 650 8379 <br></br>
+                          <br></br>
+
+                          Or email: <br></br>
+                          <a href="mailtou:is-crc@ed.ac.uk">is-crc@ed.ac.uk</a> <br></br>
+                          Write: Centre for Research Collections <br></br>
+                          Edinburgh University Library,<br></br>
+                          George Square,<br></br>
+                          Edinburgh,<br></br>
+                          EH8 9LJ<br></br>
+                          <br></br>
+                        </p>
+
+                        <h2> Enforcement procedure </h2>
+                        <p>
+                          The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2)
+                          Accessibility Regulations 2018 (the ‘accessibility regulations’). <br></br>
+                          <br></br>
+                          If you’re not happy with how we respond to your complaint please contact the Equality Advisory and Support Service (EASS) directly:<br></br>
+                          <a href="https://www.equalityadvisoryservice.com/">Contact details for the Equality Advisory and Support Service (EASS)</a> <br></br>
+                        </p>
+
+                        <h2> Contacting us by phone using British Sign Language </h2>
+                        <p>
+                          British Sign Language Scotland runs a service for British Sign Language users and all of Scotland’s public bodies using video relay.
+                          This enables sign language users to contact public bodies and vice versa. <br></br>
+                          The service operates from 8am to 12 midnight, 7 days a week. <br></br>
+                          <br></br>
+                          <a href="https://contactscotland-bsl.org/">British Sign Language Scotland service details</a> <br></br>
+                        </p>
+
+                        <h2> Technical information about this website’s accessibility</h2>
+                        <p>
+                          <strong>Website's Accessibility</strong><br></br>
+                          The University of Edinburgh is committed to making its websites accessible, in accordance with the Public Sector
+                          Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.<br></br>
+                          <br></br>
+
+                          <strong>Compliance Status</strong><br></br>
+                          This website is partially compliant with the Web Content Accessibility Guidelines 2.1 AA standard, due to the non-compliances listed below.<br></br>
+                          <br></br>
+
+                          <strong> Non accessible content </strong><br></br>
+                          The content listed below is non-accessible for the following reasons. <br></br>
+                          The following items to not comply with the WCAG 2.1 AA success criteria :
+                        </p>
+                          <ul>
+                            <li>
+                              Information is conveyed as an image of text rather than as text itself so that it's not compatible with screen readers and other assistive technology<br></br>
+                              <a href="https://www.w3.org/TR/WCAG21/#images-of-text">1.4.5 - Images of text</a>
+                            </li>
+                            <li>
+                              Most tooltips disappear as soon as the cursor moves. Also tooltips are not always present for all icons and images.<br></br>
+                              <a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus">1.4.13 - Content on Hover or Focus</a>
+                            </li>
+                            <li>
+                              There may not be sufficient colour contrast between font and background colours especially where the text size is very small.<br></br>
+                              <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast">1.4.3 - Contrast (Minimum)</a>
+                            </li>
+                            <li>
+                              Visual information to identify user interface components, such as keyboard focus, do not always have a sufficient contrast ratio<br></br>
+                              <a href="https://www.w3.org/TR/WCAG21/#non-text-contrast">1.4.11 - Non-text contrast</a>
+                            </li>
+                            <li>
+                              Some content cannot be presented without loss of information when magnified to the maximum browser level<br></br>
+                              <a href="https://www.w3.org/TR/WCAG21/#reflow">1.4.10 - Reflow</a>
+                            </li>
+                            <li>
+                              Not all non-text content has text alternatives<br></br>
+                              <a href="https://www.w3.org/TR/WCAG21/#text-alternatives">1.1.1 – Non Text Content</a>
+                            </li>
+                            <li>
+                              Not fully compatible with screen readers<br></br>
+                              <a href="https://www.w3.org/TR/WCAG21/#compatible">4.1 - Compatible</a>
+                            </li>
+                          </ul>
+                          <p>Unless specified otherwise a complete solution or significant improvement will be in place by April 2022.</p>
+
+                          <h2>What we're doing to improve accessibility</h2>
+                          <p>
+                            We will continue to work with developers to address these issues and deliver a solution or suitable workaround and correct issues directly.
+                            We hope to have the majority of issues resolved by April 2022.<br></br>                    
+                            We will continue to monitor the website will carry out further accessibility testing if significant changes are made to
+                            the user interface or if a service user raises an issue.<br></br>
+                            Whist we are in the process of resolving these accessibility issues we will of course ensure reasonable adjustments
+                            are in place to make sure no user is disadvantaged.<br></br>
+                            This statement was prepared in September 2021. It was last updated on 15th September 2021.
+                          </p>
+
+                          <h2> How we tested this website </h2>
+                          <p>
+                            This website was last tested in November 2019. The website was tested by the University of Edinburgh’s Disability Information Officer on a
+                            PC using Internet Explorer (11.0.9600.19236) browser and also using the automated Webaim WAVE tool. Internet Explorer was chosen as the
+                            browser due to it being the most commonly used browser by disabled people as shown in the government survey: the Government Assistive
+                            Technology Browser Survey <br></br>
+                            We tested:
+                          </p>
+                          <ul>
+                            <li>spellcheck functionality</li>
+                            <li>data validation</li>
+                            <li>scaling using different screen resolutions</li>
+                            <li>options to customise the interface (magnification, font, background colour etc.)</li>
+                            <li>keyboard navigation</li>
+                            <li>warning of links opening in a new tab or window</li>
+                            <li>information conveyed in colour or sound only</li>
+                            <li>flashing or scrolling text</li>
+                            <li>operability if Javascript is disabled</li>
+                            <li>use with screen reading software (eg. JAWS)</li>
+                            <li>assistive Software such as TextHelp Read and Write, and Zoomtext</li>
+                            <li>tooltips and text alternatives for any non-text content</li>
+                            <li>time limits</li>
+                          </ul>
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </xsl:when>
+                <!-- Step 3 - Accessibility Statement -->
                 <!-- Otherwise use default handling of body -->
                 <xsl:otherwise>
                     <xsl:apply-templates />
