@@ -182,8 +182,7 @@
         <name-map collection-handle="10023/28515" submission-name="theseform"/>
         <!-- Theses Form end -->
         <!-- Research Form -->
-        <name-map collection-handle="10023/96" submission-name="researchform"/>
-        <!-- <name-map collection-handle="10023/41" submission-name="researchform"/>
+        <name-map collection-handle="10023/41" submission-name="researchform"/>
         <name-map collection-handle="10023/42" submission-name="researchform"/>
         <name-map collection-handle="10023/46" submission-name="researchform"/>
         <name-map collection-handle="10023/49" submission-name="researchform"/>
@@ -287,7 +286,7 @@
         <name-map collection-handle="10023/5923" submission-name="researchform"/>
         <name-map collection-handle="10023/6121" submission-name="researchform"/>
         <name-map collection-handle="10023/8741" submission-name="researchform"/>
-        <name-map collection-handle="10023/8904" submission-name="researchform"/> -->
+        <name-map collection-handle="10023/8904" submission-name="researchform"/>
         <!-- Research Form end -->
         <!-- Custum Map end -->
     </submission-map>
