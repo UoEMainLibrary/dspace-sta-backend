@@ -189,7 +189,7 @@
         <name-map collection-handle="10023/28515" submission-name="theses_form"/>
 
         <!-- Form mapping for research collection -->
-        <name-map collection-handle="10023/41" submission-name="research_form"/>
+        <!-- <name-map collection-handle="10023/41" submission-name="research_form"/>
         <name-map collection-handle="10023/42" submission-name="research_form"/>
         <name-map collection-handle="10023/46" submission-name="research_form"/>
         <name-map collection-handle="10023/49" submission-name="research_form"/>
@@ -293,7 +293,7 @@
         <name-map collection-handle="10023/5923" submission-name="research_form"/>
         <name-map collection-handle="10023/6121" submission-name="research_form"/>
         <name-map collection-handle="10023/8741" submission-name="research_form"/>
-        <name-map collection-handle="10023/8904" submission-name="research_form"/>
+        <name-map collection-handle="10023/8904" submission-name="research_form"/> -->
         <!-- Custom end -->
 
     </submission-map>
@@ -659,12 +659,12 @@
             <step id="license"/>
         </submission-process>
 
-        <submission-process name="research_form">
+        <!-- <submission-process name="research_form">
             <step id="collection"/>
             <step id="research_form"/>
             <step id="upload"/>
             <step id="license"/>
-        </submission-process>
+        </submission-process> -->
         <!-- Custom submission processes end -->
 
     </submission-definitions>
