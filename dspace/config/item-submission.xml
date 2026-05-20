@@ -72,6 +72,230 @@
         <name-map community-handle="123456789/1234" submission-name="xxxx"/>
         -->
 
+        <!-- Custom -->
+        <name-map collection-handle="10023/43" submission-name="theses_form"/>
+        <name-map collection-handle="10023/44" submission-name="theses_form"/>
+        <name-map collection-handle="10023/47" submission-name="theses_form"/>
+        <name-map collection-handle="10023/50" submission-name="theses_form"/>
+        <name-map collection-handle="10023/53" submission-name="theses_form"/>
+        <name-map collection-handle="10023/57" submission-name="theses_form"/>
+        <name-map collection-handle="10023/60" submission-name="theses_form"/>
+        <name-map collection-handle="10023/63" submission-name="theses_form"/>
+        <name-map collection-handle="10023/66" submission-name="theses_form"/>
+        <name-map collection-handle="10023/70" submission-name="theses_form"/>
+        <name-map collection-handle="10023/73" submission-name="theses_form"/>
+        <name-map collection-handle="10023/77" submission-name="theses_form"/>
+        <name-map collection-handle="10023/79" submission-name="theses_form"/>
+        <name-map collection-handle="10023/82" submission-name="theses_form"/>
+        <name-map collection-handle="10023/85" submission-name="theses_form"/>
+        <name-map collection-handle="10023/88" submission-name="theses_form"/>
+        <name-map collection-handle="10023/91" submission-name="theses_form"/>
+        <name-map collection-handle="10023/97" submission-name="theses_form"/>
+        <name-map collection-handle="10023/99" submission-name="theses_form"/>
+        <name-map collection-handle="10023/101" submission-name="theses_form"/>
+        <name-map collection-handle="10023/104" submission-name="theses_form"/>
+        <name-map collection-handle="10023/107" submission-name="theses_form"/>
+        <name-map collection-handle="10023/110" submission-name="theses_form"/>
+        <name-map collection-handle="10023/113" submission-name="theses_form"/>
+        <name-map collection-handle="10023/116" submission-name="theses_form"/>
+        <name-map collection-handle="10023/119" submission-name="theses_form"/>
+        <name-map collection-handle="10023/122" submission-name="theses_form"/>
+        <name-map collection-handle="10023/125" submission-name="theses_form"/>
+        <name-map collection-handle="10023/129" submission-name="theses_form"/>
+        <name-map collection-handle="10023/132" submission-name="theses_form"/>
+        <name-map collection-handle="10023/167" submission-name="theses_form"/>
+        <name-map collection-handle="10023/169" submission-name="theses_form"/>
+        <name-map collection-handle="10023/171" submission-name="theses_form"/>
+        <name-map collection-handle="10023/173" submission-name="theses_form"/>
+        <name-map collection-handle="10023/177" submission-name="theses_form"/>
+        <name-map collection-handle="10023/180" submission-name="theses_form"/>
+        <name-map collection-handle="10023/183" submission-name="theses_form"/>
+        <name-map collection-handle="10023/186" submission-name="theses_form"/>
+        <name-map collection-handle="10023/189" submission-name="theses_form"/>
+        <name-map collection-handle="10023/192" submission-name="theses_form"/>
+        <name-map collection-handle="10023/195" submission-name="theses_form"/>
+        <name-map collection-handle="10023/198" submission-name="theses_form"/>
+        <name-map collection-handle="10023/201" submission-name="theses_form"/>
+        <name-map collection-handle="10023/204" submission-name="theses_form"/>
+        <name-map collection-handle="10023/207" submission-name="theses_form"/>
+        <name-map collection-handle="10023/210" submission-name="theses_form"/>
+        <name-map collection-handle="10023/224" submission-name="theses_form"/>
+        <name-map collection-handle="10023/226" submission-name="theses_form"/>
+        <name-map collection-handle="10023/229" submission-name="theses_form"/>
+        <name-map collection-handle="10023/232" submission-name="theses_form"/>
+        <name-map collection-handle="10023/235" submission-name="theses_form"/>
+        <name-map collection-handle="10023/241" submission-name="theses_form"/>
+        <name-map collection-handle="10023/247" submission-name="theses_form"/>
+        <name-map collection-handle="10023/250" submission-name="theses_form"/>
+        <name-map collection-handle="10023/253" submission-name="theses_form"/>
+        <name-map collection-handle="10023/259" submission-name="theses_form"/>
+        <name-map collection-handle="10023/263" submission-name="theses_form"/>
+        <name-map collection-handle="10023/267" submission-name="theses_form"/>
+        <name-map collection-handle="10023/270" submission-name="theses_form"/>
+        <name-map collection-handle="10023/275" submission-name="theses_form"/>
+        <name-map collection-handle="10023/278" submission-name="theses_form"/>
+        <name-map collection-handle="10023/281" submission-name="theses_form"/>
+        <name-map collection-handle="10023/284" submission-name="theses_form"/>
+        <name-map collection-handle="10023/287" submission-name="theses_form"/>
+        <name-map collection-handle="10023/290" submission-name="theses_form"/>
+        <name-map collection-handle="10023/293" submission-name="theses_form"/>
+        <name-map collection-handle="10023/299" submission-name="theses_form"/>
+        <name-map collection-handle="10023/302" submission-name="theses_form"/>
+        <name-map collection-handle="10023/307" submission-name="theses_form"/>
+        <name-map collection-handle="10023/310" submission-name="theses_form"/>
+        <name-map collection-handle="10023/447" submission-name="theses_form"/>
+        <name-map collection-handle="10023/450" submission-name="theses_form"/>
+        <name-map collection-handle="10023/453" submission-name="theses_form"/>
+        <name-map collection-handle="10023/661" submission-name="theses_form"/>
+        <name-map collection-handle="10023/662" submission-name="theses_form"/>
+        <name-map collection-handle="10023/664" submission-name="theses_form"/>
+        <name-map collection-handle="10023/666" submission-name="theses_form"/>
+        <name-map collection-handle="10023/793" submission-name="theses_form"/>
+        <name-map collection-handle="10023/797" submission-name="theses_form"/>
+        <name-map collection-handle="10023/800" submission-name="theses_form"/>
+        <name-map collection-handle="10023/803" submission-name="theses_form"/>
+        <name-map collection-handle="10023/806" submission-name="theses_form"/>
+        <name-map collection-handle="10023/809" submission-name="theses_form"/>
+        <name-map collection-handle="10023/812" submission-name="theses_form"/>
+        <name-map collection-handle="10023/815" submission-name="theses_form"/>
+        <name-map collection-handle="10023/874" submission-name="theses_form"/>
+        <name-map collection-handle="10023/1814" submission-name="theses_form"/>
+        <name-map collection-handle="10023/1831" submission-name="theses_form"/>
+        <name-map collection-handle="10023/1834" submission-name="theses_form"/>
+        <name-map collection-handle="10023/1942" submission-name="theses_form"/>
+        <name-map collection-handle="10023/1945" submission-name="theses_form"/>
+        <name-map collection-handle="10023/1948" submission-name="theses_form"/>
+        <name-map collection-handle="10023/1951" submission-name="theses_form"/>
+        <name-map collection-handle="10023/1954" submission-name="theses_form"/>
+        <name-map collection-handle="10023/2325" submission-name="theses_form"/>
+        <name-map collection-handle="10023/2543" submission-name="theses_form"/>
+        <name-map collection-handle="10023/2577" submission-name="theses_form"/>
+        <name-map collection-handle="10023/2860" submission-name="theses_form"/>
+        <name-map collection-handle="10023/3409" submission-name="theses_form"/>
+        <name-map collection-handle="10023/4726" submission-name="theses_form"/>
+        <name-map collection-handle="10023/4948" submission-name="theses_form"/>
+        <name-map collection-handle="10023/4949" submission-name="theses_form"/>
+        <name-map collection-handle="10023/4951" submission-name="theses_form"/>
+        <name-map collection-handle="10023/4992" submission-name="theses_form"/>
+        <name-map collection-handle="10023/4996" submission-name="theses_form"/>
+        <name-map collection-handle="10023/4997" submission-name="theses_form"/>
+        <name-map collection-handle="10023/6129" submission-name="theses_form"/>
+        <name-map collection-handle="10023/6581" submission-name="theses_form"/>
+        <name-map collection-handle="10023/7228" submission-name="theses_form"/>
+        <name-map collection-handle="10023/7230" submission-name="theses_form"/>
+        <name-map collection-handle="10023/9993" submission-name="theses_form"/>
+        <name-map collection-handle="10023/13169" submission-name="theses_form"/>
+        <name-map collection-handle="10023/19869" submission-name="theses_form"/>
+        <name-map collection-handle="10023/28515" submission-name="theses_form"/>
+
+        <!-- Form mapping for research collection -->
+        <name-map collection-handle="10023/41" submission-name="research_form"/>
+        <name-map collection-handle="10023/42" submission-name="research_form"/>
+        <name-map collection-handle="10023/46" submission-name="research_form"/>
+        <name-map collection-handle="10023/49" submission-name="research_form"/>
+        <name-map collection-handle="10023/52" submission-name="research_form"/>
+        <name-map collection-handle="10023/56" submission-name="research_form"/>
+        <name-map collection-handle="10023/59" submission-name="research_form"/>
+        <name-map collection-handle="10023/62" submission-name="research_form"/>
+        <name-map collection-handle="10023/65" submission-name="research_form"/>
+        <name-map collection-handle="10023/69" submission-name="research_form"/>
+        <name-map collection-handle="10023/72" submission-name="research_form"/>
+        <name-map collection-handle="10023/76" submission-name="research_form"/>
+        <name-map collection-handle="10023/78" submission-name="research_form"/>
+        <name-map collection-handle="10023/81" submission-name="research_form"/>
+        <name-map collection-handle="10023/84" submission-name="research_form"/>
+        <name-map collection-handle="10023/87" submission-name="research_form"/>
+        <name-map collection-handle="10023/90" submission-name="research_form"/>
+        <name-map collection-handle="10023/96" submission-name="research_form"/>
+        <name-map collection-handle="10023/98" submission-name="research_form"/>
+        <name-map collection-handle="10023/100" submission-name="research_form"/>
+        <name-map collection-handle="10023/103" submission-name="research_form"/>
+        <name-map collection-handle="10023/106" submission-name="research_form"/>
+        <name-map collection-handle="10023/109" submission-name="research_form"/>
+        <name-map collection-handle="10023/112" submission-name="research_form"/>
+        <name-map collection-handle="10023/115" submission-name="research_form"/>
+        <name-map collection-handle="10023/118" submission-name="research_form"/>
+        <name-map collection-handle="10023/121" submission-name="research_form"/>
+        <name-map collection-handle="10023/124" submission-name="research_form"/>
+        <name-map collection-handle="10023/128" submission-name="research_form"/>
+        <name-map collection-handle="10023/131" submission-name="research_form"/>
+        <name-map collection-handle="10023/166" submission-name="research_form"/>
+        <name-map collection-handle="10023/168" submission-name="research_form"/>
+        <name-map collection-handle="10023/170" submission-name="research_form"/>
+        <name-map collection-handle="10023/172" submission-name="research_form"/>
+        <name-map collection-handle="10023/176" submission-name="research_form"/>
+        <name-map collection-handle="10023/179" submission-name="research_form"/>
+        <name-map collection-handle="10023/182" submission-name="research_form"/>
+        <name-map collection-handle="10023/185" submission-name="research_form"/>
+        <name-map collection-handle="10023/188" submission-name="research_form"/>
+        <name-map collection-handle="10023/191" submission-name="research_form"/>
+        <name-map collection-handle="10023/194" submission-name="research_form"/>
+        <name-map collection-handle="10023/197" submission-name="research_form"/>
+        <name-map collection-handle="10023/200" submission-name="research_form"/>
+        <name-map collection-handle="10023/203" submission-name="research_form"/>
+        <name-map collection-handle="10023/206" submission-name="research_form"/>
+        <name-map collection-handle="10023/209" submission-name="research_form"/>
+        <name-map collection-handle="10023/225" submission-name="research_form"/>
+        <name-map collection-handle="10023/227" submission-name="research_form"/>
+        <name-map collection-handle="10023/230" submission-name="research_form"/>
+        <name-map collection-handle="10023/233" submission-name="research_form"/>
+        <name-map collection-handle="10023/239" submission-name="research_form"/>
+        <name-map collection-handle="10023/242" submission-name="research_form"/>
+        <name-map collection-handle="10023/248" submission-name="research_form"/>
+        <name-map collection-handle="10023/251" submission-name="research_form"/>
+        <name-map collection-handle="10023/254" submission-name="research_form"/>
+        <name-map collection-handle="10023/260" submission-name="research_form"/>
+        <name-map collection-handle="10023/264" submission-name="research_form"/>
+        <name-map collection-handle="10023/268" submission-name="research_form"/>
+        <name-map collection-handle="10023/271" submission-name="research_form"/>
+        <name-map collection-handle="10023/276" submission-name="research_form"/>
+        <name-map collection-handle="10023/279" submission-name="research_form"/>
+        <name-map collection-handle="10023/282" submission-name="research_form"/>
+        <name-map collection-handle="10023/285" submission-name="research_form"/>
+        <name-map collection-handle="10023/288" submission-name="research_form"/>
+        <name-map collection-handle="10023/291" submission-name="research_form"/>
+        <name-map collection-handle="10023/294" submission-name="research_form"/>
+        <name-map collection-handle="10023/300" submission-name="research_form"/>
+        <name-map collection-handle="10023/303" submission-name="research_form"/>
+        <name-map collection-handle="10023/308" submission-name="research_form"/>
+        <name-map collection-handle="10023/311" submission-name="research_form"/>
+        <name-map collection-handle="10023/446" submission-name="research_form"/>
+        <name-map collection-handle="10023/452" submission-name="research_form"/>
+        <name-map collection-handle="10023/795" submission-name="research_form"/>
+        <name-map collection-handle="10023/798" submission-name="research_form"/>
+        <name-map collection-handle="10023/801" submission-name="research_form"/>
+        <name-map collection-handle="10023/804" submission-name="research_form"/>
+        <name-map collection-handle="10023/807" submission-name="research_form"/>
+        <name-map collection-handle="10023/810" submission-name="research_form"/>
+        <name-map collection-handle="10023/813" submission-name="research_form"/>
+        <name-map collection-handle="10023/816" submission-name="research_form"/>
+        <name-map collection-handle="10023/858" submission-name="research_form"/>
+        <name-map collection-handle="10023/859" submission-name="research_form"/>
+        <name-map collection-handle="10023/860" submission-name="research_form"/>
+        <name-map collection-handle="10023/861" submission-name="research_form"/>
+        <name-map collection-handle="10023/880" submission-name="research_form"/>
+        <name-map collection-handle="10023/1830" submission-name="research_form"/>
+        <name-map collection-handle="10023/1833" submission-name="research_form"/>
+        <name-map collection-handle="10023/1941" submission-name="research_form"/>
+        <name-map collection-handle="10023/1944" submission-name="research_form"/>
+        <name-map collection-handle="10023/1947" submission-name="research_form"/>
+        <name-map collection-handle="10023/1950" submission-name="research_form"/>
+        <name-map collection-handle="10023/1953" submission-name="research_form"/>
+        <name-map collection-handle="10023/2324" submission-name="research_form"/>
+        <name-map collection-handle="10023/2859" submission-name="research_form"/>
+        <name-map collection-handle="10023/3886" submission-name="research_form"/>
+        <name-map collection-handle="10023/4884" submission-name="research_form"/>
+        <name-map collection-handle="10023/4886" submission-name="research_form"/>
+        <name-map collection-handle="10023/4888" submission-name="research_form"/>
+        <name-map collection-handle="10023/4890" submission-name="research_form"/>
+        <name-map collection-handle="10023/4892" submission-name="research_form"/>
+        <name-map collection-handle="10023/4946" submission-name="research_form"/>
+        <name-map collection-handle="10023/5923" submission-name="research_form"/>
+        <name-map collection-handle="10023/6121" submission-name="research_form"/>
+        <name-map collection-handle="10023/8741" submission-name="research_form"/>
+        <name-map collection-handle="10023/8904" submission-name="research_form"/>
+        <!-- Custom end -->
+
     </submission-map>
 
 
@@ -425,6 +649,24 @@
             <step id="collection"/>
             <step id="openaireOrganizationForm"/>
         </submission-process>
+
+        <!-- Custom submission processes -->
+        <submission-process name="theses_form">
+            <step id="collection"/>
+            <step id="theses_form"/>
+            <step id="upload"/>
+            <step id="itemAccessConditions"/>
+            <step id="license"/>
+        </submission-process>
+
+        <submission-process name="research_form">
+            <step id="collection"/>
+            <step id="research_form"/>
+            <step id="upload"/>
+            <step id="license"/>
+        </submission-process>
+        <!-- Custom submission processes end -->
+
     </submission-definitions>
 
 </item-submission>
