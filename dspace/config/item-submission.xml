@@ -73,7 +73,7 @@
         -->
 
         <!-- Custom -->
-        <name-map collection-handle="10023/43" submission-name="theses_form"/>
+        <!-- <name-map collection-handle="10023/43" submission-name="theses_form"/>
         <name-map collection-handle="10023/44" submission-name="theses_form"/>
         <name-map collection-handle="10023/47" submission-name="theses_form"/>
         <name-map collection-handle="10023/50" submission-name="theses_form"/>
@@ -186,7 +186,7 @@
         <name-map collection-handle="10023/9993" submission-name="theses_form"/>
         <name-map collection-handle="10023/13169" submission-name="theses_form"/>
         <name-map collection-handle="10023/19869" submission-name="theses_form"/>
-        <name-map collection-handle="10023/28515" submission-name="theses_form"/>
+        <name-map collection-handle="10023/28515" submission-name="theses_form"/> -->
 
         <!-- Form mapping for research collection -->
         <!-- <name-map collection-handle="10023/41" submission-name="research_form"/>
@@ -651,13 +651,13 @@
         </submission-process>
 
         <!-- Custom submission processes -->
-        <submission-process name="theses_form">
+        <!-- <submission-process name="theses_form">
             <step id="collection"/>
             <step id="theses_form"/>
             <step id="upload"/>
             <step id="itemAccessConditions"/>
             <step id="license"/>
-        </submission-process>
+        </submission-process> -->
 
         <!-- <submission-process name="research_form">
             <step id="collection"/>

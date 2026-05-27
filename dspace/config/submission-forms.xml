@@ -1326,7 +1326,7 @@
         </form>
 
         <!-- Custom forms -->
-        <form name="theses_form">
+        <!-- <form name="theses_form">
             <row>
                 <field>
                     <dc-schema>dc</dc-schema>
@@ -1535,7 +1535,7 @@
                 </field>
             </row>
 
-        </form>
+        </form> -->
 
         <!-- <form name="research_form">
 
@@ -2557,7 +2557,7 @@
         </value-pairs>
 
         <!-- Custom Value-Pairs -->
-        <value-pairs value-pairs-name="institution" dc-term="publisher">
+        <!-- <value-pairs value-pairs-name="institution" dc-term="publisher">
             <pair>
                 <displayed-value>The University of St Andrews</displayed-value>
                 <stored-value>The University of St Andrews</stored-value>
@@ -2606,7 +2606,7 @@
             </pair>
         </value-pairs>
 
-        <!-- <value-pairs value-pairs-name="common_types_research" dc-term="type">
+        <value-pairs value-pairs-name="common_types_research" dc-term="type">
             <pair>
                 <displayed-value>Journal article</displayed-value>
                 <stored-value>Journal article</stored-value>
@@ -2659,9 +2659,9 @@
                 <displayed-value>Scholarly text</displayed-value>
                 <stored-value>Scholarly text</stored-value>
             </pair>
-        </value-pairs> -->
+        </value-pairs>
 
-        <!-- <value-pairs value-pairs-name="description_version" dc-term="description">
+        <value-pairs value-pairs-name="description_version" dc-term="description">
             <pair>
                 <displayed-value>Postprint</displayed-value>
                 <stored-value>Postprint</stored-value>
@@ -2670,16 +2670,16 @@
                 <displayed-value>Publisher PDF</displayed-value>
                 <stored-value>Publisher PDF</stored-value>
             </pair>
-        </value-pairs> -->
+        </value-pairs>
 
-        <!-- <value-pairs value-pairs-name="publication_status" dc-term="publicationstatus">
+        <value-pairs value-pairs-name="publication_status" dc-term="publicationstatus">
             <pair>
                 <displayed-value>Published</displayed-value>
                 <stored-value>Published</stored-value>
             </pair>
-        </value-pairs> -->
+        </value-pairs>
 
-        <!-- <value-pairs value-pairs-name="status" dc-term="status">
+        <value-pairs value-pairs-name="status" dc-term="status">
             <pair>
                 <displayed-value>Peer reviewed</displayed-value>
                 <stored-value>Peer reviewed</stored-value>
