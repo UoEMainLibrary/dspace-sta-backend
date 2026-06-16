@@ -89,6 +89,19 @@ public class AccountServiceImpl implements AccountService {
         sendInfo(context, email, true, true);
     }
 
+    // Custom method for DSpace-STA to handle registration with an alternative email and school information
+    @Override
+    public void sendRegistrationInfo(Context context, String email, String altEmail, String school)
+        throws SQLException, IOException, MessagingException, AuthorizeException {
+        if (!configurationService.getBooleanProperty("user.registration", true)) {
+            throw new IllegalStateException("The user.registration parameter was set to false");
+        }
+        if (!authenticationService.canSelfRegister(context, null, email)) {
+            throw new IllegalStateException("self registration is not allowed with this email address");
+        }
+        sendInfo(context, email, altEmail, school, true, true);
+    }
+
     /**
      * Email forgot password info to the given email address.
      * Potential error conditions:
@@ -171,6 +184,28 @@ public class AccountServiceImpl implements AccountService {
         return registrationData.getEmail();
     }
 
+    @Override
+    public String getAlternativeEmail(Context context, String token) throws SQLException {
+        RegistrationData registrationData = registrationDataService.findByToken(context, token);
+
+        if (registrationData == null) {
+            return null;
+        }
+
+        return registrationData.getAltEmail();
+    }
+
+    @Override
+    public String getSchool(Context context, String token) throws SQLException {
+        RegistrationData registrationData = registrationDataService.findByToken(context, token);
+
+        if (registrationData == null) {
+            return null;
+        }
+
+        return registrationData.getSchool();
+    }
+
     /**
      * Delete token.
      *
@@ -205,12 +240,11 @@ public class AccountServiceImpl implements AccountService {
      * @throws IOException        Error reading email template
      * @throws AuthorizeException Authorization error
      */
-    protected RegistrationData sendInfo(Context context, String email,
-                                        boolean isRegister, boolean send) throws SQLException, IOException,
-        MessagingException, AuthorizeException {
+    protected RegistrationData sendInfo(Context context, String email, String altEmail, String school,
+                                    boolean isRegister, boolean send)
+        throws SQLException, IOException, MessagingException, AuthorizeException {
         // See if a registration token already exists for this user
         RegistrationData rd = registrationDataService.findByEmail(context, email);
-
 
         // If it already exists, just re-issue it
         if (rd == null) {
@@ -218,18 +252,34 @@ public class AccountServiceImpl implements AccountService {
             rd.setToken(Utils.generateHexKey());
 
             // don't set expiration date any more
-            //            rd.setColumn("expires", getDefaultExpirationDate());
             rd.setEmail(email);
+            rd.setAltEmail(altEmail);
+            rd.setSchool(school);
             registrationDataService.update(context, rd);
 
-            // This is a potential problem -- if we create the callback
-            // and then crash, registration will get SNAFU-ed.
-            // So FIRST leave some breadcrumbs
             if (log.isDebugEnabled()) {
                 log.debug("Created callback "
-                              + rd.getID()
-                              + " with token " + rd.getToken()
-                              + " with email \"" + email + "\"");
+                            + rd.getID()
+                            + " with token " + rd.getToken()
+                            + " with email \"" + email + "\""
+                            + " altEmail \"" + altEmail + "\""
+                            + " school \"" + school + "\"");
+            }
+        } else {
+            boolean updated = false;
+
+            if (altEmail != null) {
+                rd.setAltEmail(altEmail);
+                updated = true;
+            }
+
+            if (school != null) {
+                rd.setSchool(school);
+                updated = true;
+            }
+
+            if (updated) {
+                registrationDataService.update(context, rd);
             }
         }
 
@@ -238,6 +288,12 @@ public class AccountServiceImpl implements AccountService {
         }
 
         return rd;
+    }
+
+    protected RegistrationData sendInfo(Context context, String email,
+                                        boolean isRegister, boolean send)
+        throws SQLException, IOException, MessagingException, AuthorizeException {
+        return sendInfo(context, email, null, null, isRegister, send);
     }
 
     /**

@@ -27,6 +27,11 @@ public class RegistrationRest extends RestAddressableModel {
     private String email;
     private UUID user;
 
+    // Custom fields for DSpace-STA
+    private String altEmail;
+    private String school;
+    // custom end
+
     /**
      * Generic getter for the email
      * @return the email value of this RegisterRest
@@ -58,6 +63,24 @@ public class RegistrationRest extends RestAddressableModel {
     public void setUser(UUID user) {
         this.user = user;
     }
+
+    // Custom getters and setters for DSpace-STA
+    public String getAltEmail() {
+        return altEmail;
+    }
+
+    public void setAltEmail(String altEmail) {
+        this.altEmail = altEmail;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+    // custom end
 
     @Override
     public String getCategory() {

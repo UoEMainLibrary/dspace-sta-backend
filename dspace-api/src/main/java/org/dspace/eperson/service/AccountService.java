@@ -34,6 +34,12 @@ public interface AccountService {
     public void sendRegistrationInfo(Context context, String email)
         throws SQLException, IOException, MessagingException, AuthorizeException;
 
+    // Custom method for DSpace-STA to handle registration with an alternative email and school information
+    public void sendRegistrationInfo(Context context, String email, String altEmail, String school)
+        throws SQLException, IOException, MessagingException, AuthorizeException;
+    // custom end
+
+
     public void sendForgotPasswordInfo(Context context, String email)
         throws SQLException, IOException, MessagingException, AuthorizeException;
 
@@ -46,4 +52,13 @@ public interface AccountService {
 
     public void deleteToken(Context context, String token)
         throws SQLException;
+
+    // Custom method for DSpace-STA to handle registration with an alternative email and school information
+    public String getAlternativeEmail(Context context, String token)
+        throws SQLException;
+
+    public String getSchool(Context context, String token)
+        throws SQLException;    
+    // custom end
+
 }

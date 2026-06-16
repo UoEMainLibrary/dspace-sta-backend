@@ -154,7 +154,7 @@ public class RegistrationRestRepository extends DSpaceRestRepository<Registratio
                             String.format("Registration is not allowed with email address" +
                                           " %s", email));
                     }
-                    accountService.sendRegistrationInfo(context, email);
+                    accountService.sendRegistrationInfo(context, email, registrationRest.getAltEmail(), registrationRest.getSchool());
                 } catch (SQLException | IOException | MessagingException | AuthorizeException e) {
                     log.error("Something went wrong with sending registration info email: "
                               + registrationRest.getEmail(), e);
@@ -194,6 +194,8 @@ public class RegistrationRestRepository extends DSpaceRestRepository<Registratio
         }
         RegistrationRest registrationRest = new RegistrationRest();
         registrationRest.setEmail(registrationData.getEmail());
+        registrationRest.setAltEmail(registrationData.getAltEmail());
+        registrationRest.setSchool(registrationData.getSchool());
         EPerson ePerson = accountService.getEPerson(context, token);
         if (ePerson != null) {
             registrationRest.setUser(ePerson.getID());

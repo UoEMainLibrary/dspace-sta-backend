@@ -46,6 +46,15 @@ public class RegistrationData implements ReloadableEntity<Integer> {
     @Temporal(TemporalType.TIMESTAMP)
     private Date expires;
 
+    // Custom fields for DSpace-STA
+    @Column(name = "alt_email", length = 64)
+    private String altEmail;
+
+    @Column(name = "school", length = 128)
+    private String school;  
+    // custom end
+
+
     /**
      * Protected constructor, create object using:
      * {@link org.dspace.eperson.service.RegistrationDataService#create(Context)}
@@ -81,4 +90,22 @@ public class RegistrationData implements ReloadableEntity<Integer> {
     void setExpires(Date expires) {
         this.expires = expires;
     }
+
+    // Custom getters and setters for DSpace-STA
+    public String getAltEmail() {
+        return altEmail;
+    }
+
+    void setAltEmail(String altEmail) {
+        this.altEmail = altEmail;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    void setSchool(String school) {
+        this.school = school;
+    }   
+     // custom end
 }
